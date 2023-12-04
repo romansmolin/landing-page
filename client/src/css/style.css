@@ -181,7 +181,7 @@
 .step-2 {
   display: none;
   flex-direction: column;
-  height: 94%;
+  height: 90%;
 }
 .step-2 .disclaimer {
   display: none;
@@ -213,7 +213,7 @@
   margin-top: 20px;
 }
 .step-2__form .container {
-  margin-top: 15px;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
 }

@@ -73,7 +73,7 @@
 .step-1 {
   display: flex;
   flex-direction: column;
-  height: 94%;
+  height: 90%;
 }
 .step-1 .disclaimer {
   color: #263238;

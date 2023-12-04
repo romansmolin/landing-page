@@ -39,6 +39,8 @@
             .choise-buttons {
                 display: flex;
                 justify-content: center;
+                padding: 0;
+                margin: 0;
 
                 .button {
                     flex: 1;
@@ -52,7 +54,8 @@
 
                     p {
                         font-size: $font-size-large;
-                        font-weight: $font-weight-semibold
+                        font-weight: $font-weight-semibold;
+                        color: $text-color;
                     }
 
                     svg {

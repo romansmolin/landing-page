@@ -48,7 +48,7 @@ function activateLoader() {
         })
         .then(() => {
             console.log('Hello')
-            // navigateStep(4, 3);
+            navigateStep(4, 3);
         })
         .catch(error => {
             console.error('An error occurred:', error);

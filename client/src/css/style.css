@@ -465,9 +465,6 @@
   }
 }
 @media (max-width: 991.98px) {
-  .footer {
-    padding: 10px;
-  }
   .footer .wrapper {
     display: flex;
     justify-content: center;

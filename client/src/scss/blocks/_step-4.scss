@@ -1,0 +1,50 @@
+.step-4 {
+    display: none;
+    flex-direction: column;
+    height: 94%;
+
+    .disclaimer {
+        display: none;
+    }
+
+    &__form {
+        .info__container {
+            margin-top: 35px;
+
+            .info {
+                display: flex;
+                justify-content: space-between;
+
+                &__label {
+                    font-size: $font-size-large;
+                    font-weight: $font-weight-semibold;
+                    opacity: $text-opacity;
+                    display: flex;
+                    gap: 8px;
+                }
+
+                &__value {
+                    font-size: $font-size-large;
+                    font-weight: $font-weight-semibold;
+                }
+            }
+
+            &::after {
+                content: "";
+                display: block;
+                height: 1px;
+                width: 100%;
+                background-color: #d9d9d9;
+                margin-top: 20px;
+            }
+        }
+
+    }
+
+    // .container {
+    //     margin-top: 20px;
+    //     display: flex;
+    //     flex-direction: column;
+    //     gap: 8px;
+    // }
+}

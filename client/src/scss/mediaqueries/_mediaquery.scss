@@ -1,0 +1,13 @@
+@import 'blocks/main';
+@import 'blocks/footer';
+@import 'blocks/form';
+@import 'blocks/step-1';
+@import 'blocks/step-2';
+
+
+@media only screen and (max-width: 991.98px) {
+    .wrapper {
+        width: 100% !important;
+    }
+}
+

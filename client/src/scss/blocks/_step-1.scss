@@ -1,0 +1,133 @@
+.step-1 {
+    display: flex;
+    flex-direction: column;
+    height: 94%;
+
+    .disclaimer {
+        color: $text-color;
+        font-weight: $font-weight-semibold;
+
+        p {
+            margin: 0;
+            margin-top: 20px;
+        }
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+
+        h2 {
+            font-size: $font-size-extra-large;
+            font-weight: $font-weight-semibold;
+            margin: 0;
+            margin-top: 14px;
+
+            &::after {
+                content: "";
+                display: block;
+                height: 1px;
+                width: 100%;
+                background-color: #d9d9d9;
+                margin-top: 20px;
+            }
+        }
+
+        &.container {
+            width: 100%;
+            .choise-buttons {
+                display: flex;
+                justify-content: center;
+
+                .button {
+                    flex: 1;
+                    cursor: pointer;
+                    border: 0.1px solid #afc1c9;
+                    background-color: transparent;
+                    height: 60px;
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+
+                    p {
+                        font-size: $font-size-large;
+                        font-weight: $font-weight-semibold
+                    }
+
+                    svg {
+                        position: absolute;
+                        left: 10px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+
+                    &:first-child {
+                        border-right: none;
+                        border-top-left-radius: 5px;
+                        border-bottom-left-radius: 5px;
+
+                        &:hover {
+                            border-right: 0.1px solid $primary-color;
+
+                            +button {
+                                border-left: none;
+                            }
+                        }
+                    }
+
+                    &:last-child {
+                        border-top-right-radius: 5px;
+                        border-bottom-right-radius: 5px;
+
+                        p {
+                            margin-left: 25px;
+                        }
+                    }
+
+                    &:hover {
+                        border-color: $primary-color;
+
+                        p {
+                            color: $primary-color;
+                        }
+
+                        svg {
+                            path {
+                                fill: $primary-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &__description {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            .rating-stars {
+                display: flex;
+                width: 100px;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            p {
+                font-size: $font-size-large;
+                font-weight: $font-weight-medium;
+                opacity: $text-opacity;
+            }
+
+        }
+
+        &__submit {
+            button.submit {
+                margin-bottom: unset;
+            }
+        }
+
+    }
+
+}

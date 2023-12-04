@@ -1,0 +1,93 @@
+@import 'variables/variables';
+@import 'blocks/main';
+@import 'blocks/form';
+@import 'blocks/step-1';
+@import 'blocks/step-2';
+@import 'blocks/loader';
+@import 'blocks/step-3';
+@import 'blocks/step-4';
+@import 'blocks/step-5';
+@import 'blocks/footer.scss';
+@import 'mediaqueries/mediaquery';
+
+* {
+    box-sizing: border-box;
+    font-family: $main-font;
+}
+
+body,html {
+    overflow: hidden;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+}
+
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+h3 {
+    font-size: $font-size-large;
+    font-weight: $font-weight-semibold;
+    opacity: $text-opacity;
+    color: $text-color;
+    margin: 0;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+
+.wrapper {
+    max-width: 1800px;
+    width: 90%;
+    position: relative;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.submit {
+    background-color: $primary-color;
+    border: none;
+    font-size: $font-size-extra-large;
+    font-weight: $font-weight-semibold;
+    color: #ffffff;
+    height: 45px;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    &:hover {
+        background-color: $primary-color-hover;
+    }
+}
+
+.form-input {
+    width: 100%;
+    border: 0.1px solid #afc1c9;
+    height: 45px;
+    padding-left: 16px;
+    font-size: $font-size-large;
+    font-family: $main-font;
+    font-weight: $font-weight-semibold;
+    color: $text-color;
+
+    &::placeholder {
+        opacity: $text-opacity;
+        font-size: $font-size-large;
+    }
+
+    &:focus-visible {
+        border: 1px solid $primary-color;
+        outline: 0;
+    }
+}

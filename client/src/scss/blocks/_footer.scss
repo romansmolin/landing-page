@@ -1,0 +1,26 @@
+.footer {
+    width: 100%;
+    background-color: $secondary-color;
+  
+    .wrapper {
+      display: flex;
+      align-items: center;
+      padding: 20px 0px;
+      margin: 0 auto; // Center the content
+      gap: 10px;
+  
+      
+        img {
+          height: 24px; // Adjust the height as needed
+        }
+    
+  
+      .footer__copyright {
+        font-family: $main-font;
+        font-size: $font-size-large;
+        font-weight: $font-weight-semibold;
+        color: #ffffff;
+      }
+    }
+  }
+  

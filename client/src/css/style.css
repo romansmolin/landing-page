@@ -213,7 +213,7 @@
   margin-top: 20px;
 }
 .step-2__form .container {
-  margin-top: 10px;
+  margin-top: 15px;
   display: flex;
   flex-direction: column;
 }
@@ -560,7 +560,7 @@
     background-repeat: no-repeat;
   }
   .step-2 .container {
-    margin-top: 15px;
+    margin-top: 10px;
   }
   .step-2 .container .choise-buttons .button {
     height: 100px;

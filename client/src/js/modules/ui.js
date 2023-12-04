@@ -1,9 +1,9 @@
 //HANDLING NEXT STEPS IN FORM
 
-function navigateStep(stepNumber, currentStep) {
+function navigateStep(nextStep, currentStep) {
 
     hideAllSteps(currentStep);
-    document.getElementById(`step-${stepNumber}`).style.display = "flex";
+    document.getElementById(`step-${nextStep}`).style.display = "flex";
 
     if (isStepVisible(3)) {
         activateLoader();

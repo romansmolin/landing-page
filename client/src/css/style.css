@@ -640,7 +640,7 @@ h3 {
   font-size: 20px;
   font-weight: 600;
   color: #ffffff;
-  height: 45px;
+  height: 50px;
   cursor: pointer;
   position: relative;
   transition: background-color 0.3s;
@@ -673,4 +673,10 @@ h3 {
 .form-input:focus-visible {
   border: 1px solid #DC3545;
   outline: 0;
+}
+
+.input-error {
+  text-align: right;
+  color: #DC3545;
+  font-weight: 600;
 }/*# sourceMappingURL=style.css.map */

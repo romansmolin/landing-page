@@ -31,7 +31,7 @@
                             <h3>How Much Are You Moving?</h3>
 
                             <div class="choise-buttons">
-                                <button type="button" class="choise-buttons button" data-type="house">
+                                <button type="button" class="choise-buttons button" data-type="house" onclick="handleChoiceButtonClick(this, updatePropertyType)">
                                     <svg width="46" height="34" viewBox="0 0 46 34" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -40,7 +40,7 @@
                                     </svg>
                                     <p>A House</p>
                                 </button>
-                                <button type="button" class="choise-buttons button" data-type="apartment">
+                                <button type="button" class="choise-buttons button" data-type="apartment" onclick="handleChoiceButtonClick(this, updatePropertyType)">
                                     <svg width="39" height="34" viewBox="0 0 39 34" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -52,20 +52,40 @@
                                 </button>
                             </div>
                         </div>
+
                         <div class="step-1__form container">
                             <h3>Where Are You Moving From?</h3>
-
-                            <input type="text" class="form-input" id="moving-from-zipCode"
-                                placeholder="Moving From Zip Code">
+                            <div class="input-wrapper">
+                                <input 
+                                    type="text" 
+                                    class="form-input" 
+                                    id="moving-from-zipCode"
+                                    placeholder="Moving From Zip Code"
+                                    oninput="validateZipCode(this, 'moving-from-zipCode-error')"
+                                >
+                                <div class="input-icon moving-from-zipCode"></div>
+                            </div>
+                            <span class="input-error" id="moving-from-zipCode-error"></span>
                         </div>
+
+
                         <div class="step-1__form container">
                             <h3>Where Are You Moving To?</h3>
-
-                            <input type="text" class="form-input" id="moving-to-zipCode"
-                                placeholder="Moving To Zip Code">
+                            <div class="input-wrapper moving-to-zipCode">
+                                <input 
+                                    type="text" 
+                                    class="form-input" 
+                                    id="moving-to-zipCode"
+                                    placeholder="Moving To Zip Code"
+                                    oninput="validateZipCode(this, 'moving-to-zipCode-error')"
+                                >
+                                <div class="input-icon moving-from-zipCode"></div>
+                            </div>
+                            <span class="input-error" id="moving-to-zipCode-error"></span>
                         </div>
+
                         <div class="step-1__form__submit">
-                            <button type="button" class="submit" id="submit-step-1" onclick="navigateStep(2, 1)">Next</button>
+                            <button type="button" class="submit" id="submit-step-1" onclick="validateFirstStep()">Next</button>
                             <div class="step-1__form__description">
                                 <div class="rating-stars">
                                     <img src="src/icons/star.svg" alt="Rating Star 1">
@@ -328,8 +348,10 @@
 
     </footer>
 
+    <script src="src/js/modules/formData.js"></script>
     <script src="src/js/modules/ui.js"></script>
     <script src="src/js/modules/utils.js"></script>
+    <script src="src/js/modules/validation.js"></script>
 </body>
 
 </html>

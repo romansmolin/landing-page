@@ -58,7 +58,7 @@ h3 {
     font-size: $font-size-extra-large;
     font-weight: $font-weight-semibold;
     color: #ffffff;
-    height: 45px;
+    height: 50px;
     cursor: pointer;
     position: relative;
     transition: background-color 0.3s;
@@ -90,4 +90,10 @@ h3 {
         border: 1px solid $primary-color;
         outline: 0;
     }
+}
+
+.input-error {
+    text-align: right;
+    color: $primary-color;
+    font-weight: $font-weight-semibold;
 }

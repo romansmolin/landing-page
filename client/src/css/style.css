@@ -585,6 +585,9 @@
     box-sizing: border-box;
     background-repeat: no-repeat;
   }
+  .step-2 .info__container {
+    margin-top: 10px;
+  }
   .step-2 .container .choise-buttons .button {
     height: 100px;
   }
@@ -651,7 +654,7 @@ h3 {
   position: relative;
   transition: background-color 0.3s;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 .submit:hover {
   background-color: #aa2a36;

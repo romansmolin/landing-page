@@ -12,3 +12,37 @@ app.get("*", (req, res) => {
 app.listen(3000, () => {
   console.log(`Server is running on port 3000`);
 });
+
+
+// SEND OTP CODE ENDPOINT
+
+app.post("/send-verification", (req, res) => {
+  const phoneNumber = req.body.phone;
+  client.verify
+    .services(verifySid)
+    .verifications.create({ to: phoneNumber, channel: "sms" })
+    .then((verification) => {
+      res.json({ success: true, sid: verification.sid });
+    })
+    .catch((error) => {
+      res.status(500).json({ success: false, error: error.message });
+    });
+});
+
+// VERIFY OTP CODE ENDPOINT
+
+app.post("/confirm-otp-code", (req, res) => {
+  const otpCode = req.body.code;
+  const phoneNumber = req.body.phone;
+
+  client.verify
+    .services(verifySid)
+    .verificationChecks.create({ to: phoneNumber, code: otpCode })
+    .then((verification_status) => {
+      // Send the verification status back to the client
+      res.json({ valid: verification_status.valid });
+    })
+    .catch((error) => {
+      res.status(500).json({ error: error.message });
+    });
+});

@@ -9,7 +9,7 @@ function navigateStep(nextStep, currentStep) {
         activateLoader();
     }
 
-    if (isStepVisible(5)) {
+    if (isStepVisible(6)) {
         const headerPhoneLink = document.querySelector('.form__header__phone');
         const companiesFooter = document.querySelector('.companies');
 

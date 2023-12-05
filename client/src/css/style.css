@@ -386,13 +386,18 @@
 .step-4 {
   display: none;
   flex-direction: column;
-  height: 94%;
+  height: 90%;
 }
 .step-4 .disclaimer {
   display: none;
 }
+.step-4__form {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
 .step-4__form .info__container {
-  margin-top: 35px;
+  margin-top: 20px;
 }
 .step-4__form .info__container .info {
   display: flex;
@@ -684,4 +689,8 @@ h3 {
   text-align: right;
   color: #DC3545;
   font-weight: 600;
+}
+
+.iti--allow-dropdown {
+  width: 100%;
 }/*# sourceMappingURL=style.css.map */

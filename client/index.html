@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="src/css/intTelInput/intlTelInput.css">
+
+    <script src="src/js/intlTelInput/intlTelInput.min.js"></script>
     <title>Getmovers Landing Page</title>
 </head>
 
@@ -19,6 +22,8 @@
                     <a href="https://fonts.google.com/specimen/Poppins?query=popp" class="form__header__phone">(877) 771
                         0605</a>
                 </div>
+
+                <!-- STEP 1 -->
                 <div class="step-1" id="step-1">
                     <div class="disclaimer">
                         <p>Find Nationwide Movers, Both Local and Long Distance and Compare Rates for Moving Services
@@ -64,7 +69,7 @@
                                     placeholder="Moving From Zip Code"
                                     oninput="validateZipCode(this, 'ozip-error', updateZipCode)"
                                 >
-                                <div class="input-icon moving-from-zipCode"></div>
+                                <div class="input-icon ozip"></div>
                             </div>
                             <span class="input-error" id="ozip-error"></span>
                         </div>
@@ -80,7 +85,7 @@
                                     placeholder="Moving To Zip Code"
                                     oninput="validateZipCode(this, 'dzip-error', updateZipCode)"
                                 >
-                                <div class="input-icon moving-from-zipCode"></div>
+                                <div class="input-icon dzip"></div>
                             </div>
                             <span class="input-error" id="dzip-error"></span>
                         </div>
@@ -108,6 +113,7 @@
                     </div>
                 </div>
 
+                <!-- STEP 2 -->
                 <div class="step-2" id="step-2">
                     <div class="disclaimer">
                     </div>
@@ -139,7 +145,12 @@
                         <div class="step-2__form container">
                             <h3>When Is Your Move?</h3>
                             <div class="choise-buttons">
-                                <button type="button" class="button">
+                                <button 
+                                    type="button" 
+                                    class="button" 
+                                    data-type="ASAP"
+                                    onclick="handleChoiceButtonClick(this, updateMovingDate)"
+                                >
                                     <svg width="38" height="53" viewBox="0 0 38 53" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -148,7 +159,12 @@
                                     </svg>
                                     <p>ASAP</p>
                                 </button>
-                                <button type="button" class="button">
+                                <button 
+                                    type="button" 
+                                    class="button" 
+                                    data-type="This Month"
+                                    onclick="handleChoiceButtonClick(this, updateMovingDate)"
+                                >
                                     <svg width="50" height="53" viewBox="0 0 50 53" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -158,7 +174,12 @@
 
                                     <p>This month</p>
                                 </button>
-                                <button type="button" class="button">
+                                <button 
+                                    type="button" 
+                                    class="button" 
+                                    data-type="Flexible Timing"
+                                    onclick="handleChoiceButtonClick(this, updateMovingDate)"
+                                >
                                     <svg width="32" height="53" viewBox="0 0 32 53" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -169,34 +190,62 @@
                                     <p>Flexible timing</p>
                                 </button>
                             </div>
+                            <span class="input-error" id="date-error"></span>
                         </div>
 
                         <div class="step-2__form container">
                             <h3>What Is The Size Of Your Move?</h3>
                             <div class="choise-buttons">
-                                <button type="button" class="button size">
+                                <button 
+                                    type="button" 
+                                    class="button size"
+                                    data-type="1 Bedroom"
+                                    onclick="handleChoiceButtonClick(this, updatePropertySize)"
+                                >
                                     <span>1</span>
                                     <p>Bedroom</p>
                                 </button>
-                                <button type="button" class="button size">
+                                <button 
+                                    type="button" 
+                                    class="button size"
+                                    data-type="2 Bedroom"
+                                    onclick="handleChoiceButtonClick(this, updatePropertySize)"
+                                >
                                     <span>2</span>
                                     <p>Bedroom</p>
                                 </button>
-                                <button type="button" class="button size">
+                                <button 
+                                    type="button" 
+                                    class="button size"
+                                    data-type="3 Bedroom"
+                                    onclick="handleChoiceButtonClick(this, updatePropertySize)"
+                                >
                                     <span>3</span>
                                     <p>Bedroom</p>
                                 </button>
-                                <button type="button" class="button size">
+                                <button 
+                                    type="button" 
+                                    class="button size"
+                                    data-type="+4 Bedroom"
+                                    onclick="handleChoiceButtonClick(this, updatePropertySize)"
+                                >
                                     <span>4+</span>
                                     <p>Bedroom</p>
                                 </button>
                             </div>
+                            <span class="input-error" id="size-error"></span>
                         </div>
                     </div>
-                    <button type="button" class="submit" id="submit-step-2" onclick="navigateStep(3, 2)">Next</button>
+                    <button 
+                        type="button" 
+                        class="submit" 
+                        id="submit-step-2" 
+                        onclick="validateSecondStep()"
+                    >Next</button>
 
                 </div>
 
+                <!-- STEP 3 LOADER -->
                 <div class="step-3" id="step-3">
                     <div class="disclaimer">
                     </div>
@@ -251,6 +300,7 @@
                     </div>
                 </div>
 
+                <!-- STEP 4 -->
                 <div class="step-4" id="step-4">
                     <div class="disclaimer">
                     </div>
@@ -296,23 +346,57 @@
                         <div class="step-4__form container">
                             <h3>Enter Your Name</h3>
 
-                            <input type="text" class="form-input" id="fullname"
-                                placeholder="Full Name">
+                            <div class="input-wrapper">
+                                <input 
+                                    type="text" 
+                                    class="form-input" 
+                                    id="fullname"
+                                    placeholder="Full Name"
+                                    oninput="validateFullName(this, 'fullname-error', updateName)"
+                                >
+                                <div class="input-icon fullname"></div>
+                            </div>
+                            <span class="input-error" id="fullname-error"></span>
+
                         </div>
                         <div class="step-4__form container">
                             <h3>Enter Your Email</h3>
 
-                            <input type="text" class="form-input" id="email"
-                                placeholder="Enter Your Email">
+                            <div class="input-wrapper">
+                                <input 
+                                    type="text" 
+                                    class="form-input" 
+                                    id="email"
+                                    placeholder="Enter Your Email"
+                                    oninput="validateEmail(this, 'email-error', updateEmail)"
+                                >
+                                <div class="input-icon email"></div>
+                            </div>
+                            <span class="input-error" id="email-error"></span>
                         </div>
-                        <div class="step4__form container">
+                        <div class="step-4__form container">
                             <h3>Enter Your Phone Number</h3>
 
-                            <input type="text" class="form-input" id="phone"
-                                placeholder="Enter Your Phone Number">
+                            <div class="input-wrapper">
+                                <input 
+                                    type="text" 
+                                    class="form-input" 
+                                    id="phone"
+                                    placeholder="Enter Your Phone Number"
+                                    oninput="validatePhone('phone-error', updatePhone)"
+                                >
+                                <div class="input-icon phone"></div>
+                            </div>
+                            <span class="input-error" id="phone-error"></span>
                         </div>
                         <div class="step-4__form__submit">
-                            <button type="button" class="submit" id="submit-step-4" onclick="navigateStep(5, 4)">Get Estimates</button>
+                            <button 
+                                type="button" 
+                                class="submit" 
+                                id="submit-step-4" 
+                                onclick="validateFourthStep()"
+                            >Get Estimates
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -360,6 +444,7 @@
     <script src="src/js/modules/ui.js"></script>
     <script src="src/js/modules/utils.js"></script>
     <script src="src/js/modules/validation.js"></script>
+    <script src="src/js/index.js"></script>
 </body>
 
 </html>

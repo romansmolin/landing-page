@@ -47,7 +47,6 @@ function activateLoader() {
             return simulateLoading(2000);
         })
         .then(() => {
-            console.log('Hello')
             navigateStep(4, 3);
         })
         .catch(error => {

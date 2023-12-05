@@ -1,6 +1,7 @@
 
 .form {
-    height: 650px;
+    min-height: 600px;
+    height: auto;
     top: 50%;
     transform: translateY(-50%);
     position: absolute;
@@ -57,5 +58,6 @@
         justify-content: space-between;
         align-items: center;
         height: 5%;
+        margin-top: 10px;
     }
 }

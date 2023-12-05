@@ -19,7 +19,8 @@
 }
 
 .form {
-  height: 650px;
+  min-height: 600px;
+  height: auto;
   top: 50%;
   transform: translateY(-50%);
   position: absolute;
@@ -70,6 +71,7 @@
   justify-content: space-between;
   align-items: center;
   height: 5%;
+  margin-top: 10px;
 }
 
 .step-1 {
@@ -83,7 +85,7 @@
 }
 .step-1 .disclaimer p {
   margin: 0;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 .step-1__form {
   display: flex;
@@ -102,7 +104,7 @@
   height: 1px;
   width: 100%;
   background-color: #d9d9d9;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 .step-1__form.container {
   width: 100%;
@@ -165,6 +167,8 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  margin-top: 10px;
+  justify-content: space-between;
 }
 .step-1__form__description .rating-stars {
   display: flex;
@@ -176,6 +180,7 @@
   font-size: 16px;
   font-weight: 500;
   opacity: 0.5;
+  margin: 0;
 }
 .step-1__form__submit button.submit {
   margin-bottom: unset;

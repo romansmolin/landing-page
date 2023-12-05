@@ -77,7 +77,7 @@
 .step-1 {
   display: flex;
   flex-direction: column;
-  height: 90%;
+  flex-grow: 1;
 }
 .step-1 .disclaimer {
   color: #263238;
@@ -189,7 +189,7 @@
 .step-2 {
   display: none;
   flex-direction: column;
-  height: 90%;
+  flex-grow: 1;
 }
 .step-2 .disclaimer {
   display: none;
@@ -385,7 +385,7 @@
 .step-4 {
   display: none;
   flex-direction: column;
-  height: 90%;
+  flex-grow: 1;
 }
 .step-4 .disclaimer {
   display: none;
@@ -645,6 +645,20 @@
   }
   .step-2 .container .choise-buttons .button.size {
     height: 75px;
+  }
+}
+@media only screen and (max-width: 991.98px) {
+  .step-4 .disclaimer {
+    display: block;
+    height: 120px;
+    width: calc(100% + 56px);
+    margin-left: -30px;
+    margin-right: -30px;
+    background: url(../img/background_image_mobile_devices.png);
+    background-size: cover;
+    background-position: right;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
   }
 }
 @media only screen and (max-width: 991.98px) {

@@ -24,6 +24,7 @@ function handleChoiceButtonClick(button, updateFunction, errorId, dynamicSpan) {
     dynamicFields.forEach(field => {
         field.textContent = data;
     })
+    
     updateFunction(data);
 }
 

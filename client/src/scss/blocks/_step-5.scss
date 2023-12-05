@@ -11,6 +11,10 @@
 
         h2 {
             text-align: center;
+
+            a {
+                color: $text-color;
+            }
         }
 
         .container {

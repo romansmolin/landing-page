@@ -102,3 +102,9 @@ h3 {
 .iti--allow-dropdown {
     width: 100%;
 }
+
+.info__value {
+    &:first-letter {
+        text-transform: uppercase;
+    }
+}

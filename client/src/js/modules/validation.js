@@ -5,8 +5,9 @@ const phoneInput = window.intlTelInput(phoneInputField, {
 
 //TODO: Refactor code
 
-function handleChoiceButtonClick(button, updateFunction, errorId) {
+function handleChoiceButtonClick(button, updateFunction, errorId, dynamicSpan) {
     const errorSpan = document.getElementById(errorId);
+    const dynamicFields = document.querySelectorAll(dynamicSpan);
 
     if (errorSpan.textContent) {
         errorSpan.textContent = "";
@@ -19,6 +20,10 @@ function handleChoiceButtonClick(button, updateFunction, errorId) {
     button.classList.add('selected');
 
     const data = button.getAttribute("data-type");
+
+    dynamicFields.forEach(field => {
+        field.textContent = data;
+    })
     updateFunction(data);
 }
 
@@ -81,6 +86,7 @@ function validateEmail(input, errorId, updateFunction) {
 function validatePhone(errorId, updateFunction) {
     const phoneNumber = phoneInput.getNumber();
     const isValid = phoneInput.isValidNumber();
+    const dynamicField = document.querySelector('.phone-number-field');
 
     const errorMessage = "Please enter a valid phone number.";
     const errorSpan = document.getElementById(errorId);
@@ -89,6 +95,7 @@ function validatePhone(errorId, updateFunction) {
         errorSpan.textContent = errorMessage;
         updateFunction("");
     } else {
+        dynamicField.textContent = phoneNumber;
         errorSpan.textContent = "";
         updateFunction(phoneNumber);
     }

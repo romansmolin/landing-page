@@ -40,7 +40,7 @@
                                     type="button" 
                                     class="choise-buttons button" 
                                     data-type="house" 
-                                    onclick="handleChoiceButtonClick(this, updatePropertyType, 'property-error')"
+                                    onclick="handleChoiceButtonClick(this, updatePropertyType, 'property-error', '.property-field')"
                                 >
                                     <svg width="46" height="34" viewBox="0 0 46 34" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -54,7 +54,7 @@
                                     type="button" 
                                     class="choise-buttons button" 
                                     data-type="apartment" 
-                                    onclick="handleChoiceButtonClick(this, updatePropertyType, 'property-error')"
+                                    onclick="handleChoiceButtonClick(this, updatePropertyType, 'property-error', '.property-field')"
                                 >
                                     <svg width="39" height="34" viewBox="0 0 39 34" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -134,21 +134,21 @@
                                     <img src="src/icons/parcel.svg" alt="Info 1">
                                     How Much Are You Moving
                                 </div>
-                                <div class="info__value">A House</div>
+                                <div class="info__value property-field"></div>
                             </div>
                             <div class="info">
                                 <div class="info__label">
                                     <img src="src/icons/geo.svg" alt="Info 2">
                                     Moving From
                                 </div>
-                                <div class="info__value">Schenectady, NY</div>
+                                <div class="info__value ozip-field">Schenectady, NY</div>
                             </div>
                             <div class="info">
                                 <div class="info__label">
                                     <img src="src/icons/geo.svg" alt="Info 3">
                                     Moving To
                                 </div>
-                                <div class="info__value">Schenectady, NY</div>
+                                <div class="info__value dzip-field">Schenectady, NY</div>
                             </div>
                         </div>
 
@@ -159,7 +159,7 @@
                                     type="button" 
                                     class="button" 
                                     data-type="ASAP"
-                                    onclick="handleChoiceButtonClick(this, updateMovingDate, 'date-error')"
+                                    onclick="handleChoiceButtonClick(this, updateMovingDate, 'date-error', '.date-field')"
                                 >
                                     <svg width="38" height="53" viewBox="0 0 38 53" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -173,7 +173,7 @@
                                     type="button" 
                                     class="button" 
                                     data-type="This Month"
-                                    onclick="handleChoiceButtonClick(this, updateMovingDate, 'date-error')"
+                                    onclick="handleChoiceButtonClick(this, updateMovingDate, 'date-error', '.date-field')"
                                 >
                                     <svg width="50" height="53" viewBox="0 0 50 53" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -188,7 +188,7 @@
                                     type="button" 
                                     class="button" 
                                     data-type="Flexible Timing"
-                                    onclick="handleChoiceButtonClick(this, updateMovingDate, 'date-error')"
+                                    onclick="handleChoiceButtonClick(this, updateMovingDate, 'date-error', '.date-field')"
                                 >
                                     <svg width="32" height="53" viewBox="0 0 32 53" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -210,7 +210,7 @@
                                     type="button" 
                                     class="button size"
                                     data-type="1 Bedroom"
-                                    onclick="handleChoiceButtonClick(this, updatePropertySize, 'size-error')"
+                                    onclick="handleChoiceButtonClick(this, updatePropertySize, 'size-error', '.size-field')"
                                 >
                                     <span>1</span>
                                     <p>Bedroom</p>
@@ -219,7 +219,7 @@
                                     type="button" 
                                     class="button size"
                                     data-type="2 Bedroom"
-                                    onclick="handleChoiceButtonClick(this, updatePropertySize, 'size-error')"
+                                    onclick="handleChoiceButtonClick(this, updatePropertySize, 'size-error', '.size-field')"
                                 >
                                     <span>2</span>
                                     <p>Bedroom</p>
@@ -228,7 +228,7 @@
                                     type="button" 
                                     class="button size"
                                     data-type="3 Bedroom"
-                                    onclick="handleChoiceButtonClick(this, updatePropertySize, 'size-error')"
+                                    onclick="handleChoiceButtonClick(this, updatePropertySize, 'size-error', '.size-field')"
                                 >
                                     <span>3</span>
                                     <p>Bedroom</p>
@@ -237,7 +237,7 @@
                                     type="button" 
                                     class="button size"
                                     data-type="+4 Bedroom"
-                                    onclick="handleChoiceButtonClick(this, updatePropertySize, 'size-error')"
+                                    onclick="handleChoiceButtonClick(this, updatePropertySize, 'size-error', '.size-field')"
                                 >
                                     <span>4+</span>
                                     <p>Bedroom</p>
@@ -266,7 +266,7 @@
                                     <img src="src/icons/parcel.svg" alt="Info 1">
                                     How Much Are You Moving
                                 </div>
-                                <div class="info__value">A House</div>
+                                <div class="info__value property-field"></div>
                             </div>
                             <div class="info">
                                 <div class="info__label">
@@ -287,14 +287,14 @@
                                     <img src="src/icons/clock.svg" alt="Info 4">
                                     When is Your Move
                                 </div>
-                                <div class="info__value">Flexible Timing</div>
+                                <div class="info__value date-field"></div>
                             </div>
                             <div class="info">
                                 <div class="info__label">
                                     <img src="src/icons/size.svg" alt="Info 5">
                                     Size of Your Move
                                 </div>
-                                <div class="info__value">4+ Bedroom</div>
+                                <div class="info__value size-field"></div>
                             </div>
                         </div>
                         <div class="loader__container">
@@ -321,7 +321,7 @@
                                     <img src="src/icons/parcel.svg" alt="Info 1">
                                     How Much Are You Moving
                                 </div>
-                                <div class="info__value">A House</div>
+                                <div class="info__value property-field"></div>
                             </div>
                             <div class="info">
                                 <div class="info__label">
@@ -342,14 +342,14 @@
                                     <img src="src/icons/clock.svg" alt="Info 4">
                                     When is Your Move
                                 </div>
-                                <div class="info__value">Flexible Timing</div>
+                                <div class="info__value date-field"></div>
                             </div>
                             <div class="info">
                                 <div class="info__label">
                                     <img src="src/icons/size.svg" alt="Info 5">
                                     Size of Your Move
                                 </div>
-                                <div class="info__value">4+ Bedroom</div>
+                                <div class="info__value size-field"></div>
                             </div>
                         </div>
 
@@ -414,7 +414,7 @@
                 <!-- STEP 5 OTP CODE -->
                 <div class="step-5" id="step-5">
                     <div class="step-5__form" id="form-step-5">
-                        <h2>Texting your PIN Code to +37120012057</h2>
+                        <h2>Texting your PIN Code to <a class="phone-number-field"></a></h2>
                         <div class="step-5__form container">
                             <input type="number" class="otp-input" id="otp-1">
                             <input type="number" class="otp-input" id="otp-2">

@@ -5,7 +5,19 @@ const phoneInput = window.intlTelInput(phoneInputField, {
 
 //TODO: Refactor code
 
-function handleChoiceButtonClick(button, updateFunction) {
+function handleChoiceButtonClick(button, updateFunction, errorId) {
+    const errorSpan = document.getElementById(errorId);
+
+    if (errorSpan.textContent) {
+        errorSpan.textContent = "";
+    }
+
+    const container = button.closest('.container'); // Find the closest container
+    const buttonsInContainer = container.querySelectorAll('.button'); // Select buttons only within this container
+
+    buttonsInContainer.forEach(btn => btn.classList.remove('selected'));
+    button.classList.add('selected');
+
     const data = button.getAttribute("data-type");
     updateFunction(data);
 }

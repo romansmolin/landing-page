@@ -141,10 +141,10 @@
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
-.step-1__form.container .choise-buttons .button:first-child:hover {
+.step-1__form.container .choise-buttons .button:first-child.selected, .step-1__form.container .choise-buttons .button:first-child:hover {
   border-right: 0.1px solid #DC3545;
 }
-.step-1__form.container .choise-buttons .button:first-child:hover + button {
+.step-1__form.container .choise-buttons .button:first-child.selected + button, .step-1__form.container .choise-buttons .button:first-child:hover + button {
   border-left: none;
 }
 .step-1__form.container .choise-buttons .button:last-child {
@@ -154,13 +154,13 @@
 .step-1__form.container .choise-buttons .button:last-child p {
   margin-left: 25px;
 }
-.step-1__form.container .choise-buttons .button:hover {
+.step-1__form.container .choise-buttons .button.selected, .step-1__form.container .choise-buttons .button:hover {
   border-color: #DC3545;
 }
-.step-1__form.container .choise-buttons .button:hover p {
+.step-1__form.container .choise-buttons .button.selected p, .step-1__form.container .choise-buttons .button:hover p {
   color: #DC3545;
 }
-.step-1__form.container .choise-buttons .button:hover svg path {
+.step-1__form.container .choise-buttons .button.selected svg path, .step-1__form.container .choise-buttons .button:hover svg path {
   fill: #DC3545;
 }
 .step-1__form__description {
@@ -252,10 +252,10 @@
 .step-2__form .container .choise-buttons .button:not(:last-child) {
   border-right: none;
 }
-.step-2__form .container .choise-buttons .button:not(:last-child):hover {
+.step-2__form .container .choise-buttons .button:not(:last-child).selected, .step-2__form .container .choise-buttons .button:not(:last-child):hover {
   border-right: 0.1px solid #DC3545;
 }
-.step-2__form .container .choise-buttons .button:not(:last-child):hover + button {
+.step-2__form .container .choise-buttons .button:not(:last-child).selected + button, .step-2__form .container .choise-buttons .button:not(:last-child):hover + button {
   border-left: none;
 }
 .step-2__form .container .choise-buttons .button:first-child {
@@ -266,13 +266,13 @@
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
-.step-2__form .container .choise-buttons .button:hover {
+.step-2__form .container .choise-buttons .button.selected, .step-2__form .container .choise-buttons .button:hover {
   border-color: #DC3545;
 }
-.step-2__form .container .choise-buttons .button:hover p {
+.step-2__form .container .choise-buttons .button.selected p, .step-2__form .container .choise-buttons .button:hover p {
   color: #DC3545;
 }
-.step-2__form .container .choise-buttons .button:hover svg path {
+.step-2__form .container .choise-buttons .button.selected svg path, .step-2__form .container .choise-buttons .button:hover svg path {
   fill: #DC3545;
 }
 .step-2__form .container .choise-buttons .button.size {
@@ -286,7 +286,7 @@
   font-weight: 600;
   color: #263238;
 }
-.step-2__form .container .choise-buttons .button.size:hover span {
+.step-2__form .container .choise-buttons .button.size.selected span, .step-2__form .container .choise-buttons .button.size:hover span {
   color: #DC3545;
 }
 
@@ -350,7 +350,7 @@
 .step-3 {
   display: none;
   flex-direction: column;
-  height: 90%;
+  flex-grow: 1;
 }
 .step-3 .disclaimer {
   display: none;

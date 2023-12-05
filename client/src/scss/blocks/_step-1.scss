@@ -69,7 +69,8 @@
                         border-right: none;
                         border-top-left-radius: 5px;
                         border-bottom-left-radius: 5px;
-
+                        
+                        &.selected,
                         &:hover {
                             border-right: 0.1px solid $primary-color;
 
@@ -88,6 +89,7 @@
                         }
                     }
 
+                    &.selected,
                     &:hover {
                         border-color: $primary-color;
 

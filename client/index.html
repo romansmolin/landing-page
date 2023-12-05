@@ -36,7 +36,12 @@
                             <h3>How Much Are You Moving?</h3>
 
                             <div class="choise-buttons">
-                                <button type="button" class="choise-buttons button" data-type="house" onclick="handleChoiceButtonClick(this, updatePropertyType)">
+                                <button 
+                                    type="button" 
+                                    class="choise-buttons button" 
+                                    data-type="house" 
+                                    onclick="handleChoiceButtonClick(this, updatePropertyType, 'property-error')"
+                                >
                                     <svg width="46" height="34" viewBox="0 0 46 34" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -45,7 +50,12 @@
                                     </svg>
                                     <p>A House</p>
                                 </button>
-                                <button type="button" class="choise-buttons button" data-type="apartment" onclick="handleChoiceButtonClick(this, updatePropertyType)">
+                                <button 
+                                    type="button" 
+                                    class="choise-buttons button" 
+                                    data-type="apartment" 
+                                    onclick="handleChoiceButtonClick(this, updatePropertyType, 'property-error')"
+                                >
                                     <svg width="39" height="34" viewBox="0 0 39 34" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -149,7 +159,7 @@
                                     type="button" 
                                     class="button" 
                                     data-type="ASAP"
-                                    onclick="handleChoiceButtonClick(this, updateMovingDate)"
+                                    onclick="handleChoiceButtonClick(this, updateMovingDate, 'date-error')"
                                 >
                                     <svg width="38" height="53" viewBox="0 0 38 53" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -163,7 +173,7 @@
                                     type="button" 
                                     class="button" 
                                     data-type="This Month"
-                                    onclick="handleChoiceButtonClick(this, updateMovingDate)"
+                                    onclick="handleChoiceButtonClick(this, updateMovingDate, 'date-error')"
                                 >
                                     <svg width="50" height="53" viewBox="0 0 50 53" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -178,7 +188,7 @@
                                     type="button" 
                                     class="button" 
                                     data-type="Flexible Timing"
-                                    onclick="handleChoiceButtonClick(this, updateMovingDate)"
+                                    onclick="handleChoiceButtonClick(this, updateMovingDate, 'date-error')"
                                 >
                                     <svg width="32" height="53" viewBox="0 0 32 53" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -200,7 +210,7 @@
                                     type="button" 
                                     class="button size"
                                     data-type="1 Bedroom"
-                                    onclick="handleChoiceButtonClick(this, updatePropertySize)"
+                                    onclick="handleChoiceButtonClick(this, updatePropertySize, 'size-error')"
                                 >
                                     <span>1</span>
                                     <p>Bedroom</p>
@@ -209,7 +219,7 @@
                                     type="button" 
                                     class="button size"
                                     data-type="2 Bedroom"
-                                    onclick="handleChoiceButtonClick(this, updatePropertySize)"
+                                    onclick="handleChoiceButtonClick(this, updatePropertySize, 'size-error')"
                                 >
                                     <span>2</span>
                                     <p>Bedroom</p>
@@ -218,7 +228,7 @@
                                     type="button" 
                                     class="button size"
                                     data-type="3 Bedroom"
-                                    onclick="handleChoiceButtonClick(this, updatePropertySize)"
+                                    onclick="handleChoiceButtonClick(this, updatePropertySize, 'size-error')"
                                 >
                                     <span>3</span>
                                     <p>Bedroom</p>
@@ -227,7 +237,7 @@
                                     type="button" 
                                     class="button size"
                                     data-type="+4 Bedroom"
-                                    onclick="handleChoiceButtonClick(this, updatePropertySize)"
+                                    onclick="handleChoiceButtonClick(this, updatePropertySize, 'size-error')"
                                 >
                                     <span>4+</span>
                                     <p>Bedroom</p>
@@ -401,6 +411,7 @@
                     </div>
                 </div>
 
+                <!-- STEP 5 OTP CODE -->
                 <div class="step-5" id="step-5">
                     <div class="step-5__form" id="form-step-5">
                         <h2>Texting your PIN Code to +37120012057</h2>
@@ -423,6 +434,7 @@
                     </div>
                 </div>
 
+                <!-- STEP 6 FINAL PAGE -->
                 <div class="step-6" id="step-6">
                     <div class="step-6__final-text">
                         <img src="src/icons/final.svg" alt="Final">

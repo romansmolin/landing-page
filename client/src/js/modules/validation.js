@@ -169,8 +169,29 @@ function validateFourthStep() {
             }
         }
     } else {
-        sendVerificationCode()
+        sendVerificationCode(formData.phone)
         navigateStep(5, 4)
+    }
+}
+
+async function validateOtp(errorId) {
+    const otp = collectOTP();
+    const otpInputs = document.querySelectorAll('.otp-input');
+    const errorSpan = document.getElementById(errorId);
+
+
+    if (otp && otp.length === 4) {
+        const isOTPValid = await confirmOTP(formData.phone, otp);
+
+        if (isOTPValid) {
+            errorSpan.textContent = "";
+            navigateStep(6, 5)
+        }
+    } else {
+        otpInputs.forEach((input) => {
+            input.classList.add("error");
+        });
+        errorSpan.textContent = "Please enter a valid PIN code.";
     }
 }
 

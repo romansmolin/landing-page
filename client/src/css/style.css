@@ -449,6 +449,17 @@
   font-weight: 600;
   padding: 0px;
   border: 0.1px solid #afc1c9;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+          appearance: none;
+}
+.step-5__form .container .otp-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.step-5__form .container .otp-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .step-6 {
@@ -487,6 +498,12 @@
   font-size: 16px;
   font-weight: 600;
   color: #263238;
+}
+.step-6__cta-button button {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 .step-6__cta-button button a {
   color: #ffffff;

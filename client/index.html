@@ -405,15 +405,18 @@
                     <div class="step-5__form" id="form-step-5">
                         <h2>Texting your PIN Code to +37120012057</h2>
                         <div class="step-5__form container">
-                            <input type="number" class="otp-input">
-                            <input type="number" class="otp-input">
-                            <input type="number" class="otp-input">
-                            <input type="number" class="otp-input">
+                            <input type="number" class="otp-input" id="otp-1">
+                            <input type="number" class="otp-input" id="otp-2">
+                            <input type="number" class="otp-input" id="otp-3">
+                            <input type="number" class="otp-input" id="otp-4">
                         </div>
+                        <span class="input-error" id="otp-error"></span>
+
                         <button 
                             type="button" 
                             class="submit" 
                             id="submit-step-5" 
+                            onclick="validateOtp('otp-error')"
                         >
                             Verify
                         </button>

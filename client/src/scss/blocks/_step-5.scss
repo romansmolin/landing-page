@@ -26,7 +26,21 @@
                 font-weight: $font-weight-semibold;
                 padding: 0px;
                 border: 0.1px solid #afc1c9;
+
+                -moz-appearance: none;
+                appearance: none;
+
+                &::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
+
+                &::-webkit-outer-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
             }
+
         }
     }
 }

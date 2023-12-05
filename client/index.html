@@ -51,6 +51,7 @@
                                     <p>An Apartment</p>
                                 </button>
                             </div>
+                            <span class="input-error" id="property-error"></span>
                         </div>
 
                         <div class="step-1__form container">
@@ -59,13 +60,13 @@
                                 <input 
                                     type="text" 
                                     class="form-input" 
-                                    id="moving-from-zipCode"
+                                    id="ozip"
                                     placeholder="Moving From Zip Code"
-                                    oninput="validateZipCode(this, 'moving-from-zipCode-error')"
+                                    oninput="validateZipCode(this, 'ozip-error', updateZipCode)"
                                 >
                                 <div class="input-icon moving-from-zipCode"></div>
                             </div>
-                            <span class="input-error" id="moving-from-zipCode-error"></span>
+                            <span class="input-error" id="ozip-error"></span>
                         </div>
 
 
@@ -75,17 +76,24 @@
                                 <input 
                                     type="text" 
                                     class="form-input" 
-                                    id="moving-to-zipCode"
+                                    id="dzip"
                                     placeholder="Moving To Zip Code"
-                                    oninput="validateZipCode(this, 'moving-to-zipCode-error')"
+                                    oninput="validateZipCode(this, 'dzip-error', updateZipCode)"
                                 >
                                 <div class="input-icon moving-from-zipCode"></div>
                             </div>
-                            <span class="input-error" id="moving-to-zipCode-error"></span>
+                            <span class="input-error" id="dzip-error"></span>
                         </div>
 
                         <div class="step-1__form__submit">
-                            <button type="button" class="submit" id="submit-step-1" onclick="validateFirstStep()">Next</button>
+                            <button 
+                                type="button" 
+                                class="submit" 
+                                id="submit-step-1" 
+                                onclick="validateFirstStep()"
+                            >
+                                Next
+                            </button>
                             <div class="step-1__form__description">
                                 <div class="rating-stars">
                                     <img src="src/icons/star.svg" alt="Rating Star 1">

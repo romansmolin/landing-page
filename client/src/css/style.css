@@ -589,16 +589,13 @@
     margin-top: 10px;
   }
   .step-2 .container .choise-buttons .button {
-    height: 75px;
-  }
-  .step-2 .container .choise-buttons .button svg {
-    height: 30px;
+    height: 100px;
   }
   .step-2 .container .choise-buttons .button p {
     font-size: 14px;
   }
   .step-2 .container .choise-buttons .button.size {
-    height: 80px;
+    height: 75px;
   }
 }
 @media only screen and (max-width: 991.98px) {

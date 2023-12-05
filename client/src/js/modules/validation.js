@@ -169,6 +169,7 @@ function validateFourthStep() {
             }
         }
     } else {
+        sendVerificationCode()
         navigateStep(5, 4)
     }
 }

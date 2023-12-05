@@ -221,7 +221,6 @@
   margin-top: 20px;
 }
 .step-2__form .container {
-  margin-top: 15px;
   display: flex;
   flex-direction: column;
 }
@@ -351,13 +350,13 @@
 .step-3 {
   display: none;
   flex-direction: column;
-  height: 94%;
+  height: 90%;
 }
 .step-3 .disclaimer {
   display: none;
 }
 .step-3__form .info__container {
-  margin-top: 35px;
+  margin-top: 20px;
 }
 .step-3__form .info__container .info {
   display: flex;

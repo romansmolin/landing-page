@@ -589,7 +589,10 @@
     margin-top: 10px;
   }
   .step-2 .container .choise-buttons .button {
-    height: 100px;
+    height: 75px;
+  }
+  .step-2 .container .choise-buttons .button svg {
+    height: 30px;
   }
   .step-2 .container .choise-buttons .button p {
     font-size: 14px;

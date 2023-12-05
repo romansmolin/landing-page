@@ -18,7 +18,11 @@
 
             .choise-buttons {
                 .button {
-                    height: 100px;
+                    height: 75px;
+
+                    svg {
+                        height: 30px;
+                    }
 
                     p {
                         font-size: $font-size-small;
@@ -32,17 +36,3 @@
         }
     }
 }
-
-// @media (min-width: 1000px) and (max-width: 1600.98px) {
-//     .step-2 {
-//         &__form {
-//             .info__container {
-//                 margin-top: 15px;
-//             }
-
-//             .container{
-//                 gap: 0;
-//             }
-//         }
-//     }
-// }

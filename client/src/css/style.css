@@ -627,7 +627,7 @@
     gap: 20px;
   }
   .step-1__form h2 {
-    margin-top: 30px;
+    margin-top: 20px;
   }
   .step-1__form h2::after {
     display: none;
@@ -670,7 +670,7 @@
     margin-top: none;
   }
   .step-2__form .info__container {
-    margin-top: 30px;
+    margin-top: 20px;
     gap: 0;
   }
   .step-2__form .container {
@@ -696,7 +696,7 @@
     margin-top: none;
   }
   .step-4__form .info__container {
-    margin-top: 30px;
+    margin-top: 20px;
     gap: 0;
   }
   .step-4__form .container {

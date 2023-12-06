@@ -7,8 +7,13 @@
 
 
 @media only screen and (max-width: 991.98px) {
+
+    body,
+    html {
+        overflow: unset !important;
+    }
+
     .wrapper {
         width: 100% !important;
     }
 }
-

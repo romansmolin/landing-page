@@ -72,7 +72,7 @@
                         
                         &.selected,
                         &:hover {
-                            border-right: 0.1px solid $primary-color;
+                            border-right: 1px solid $primary-color;
 
                             +button {
                                 border-left: none;
@@ -91,7 +91,7 @@
 
                     &.selected,
                     &:hover {
-                        border-color: $primary-color;
+                        border: 1px solid $primary-color;
 
                         p {
                             color: $primary-color;

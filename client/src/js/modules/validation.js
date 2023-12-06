@@ -29,77 +29,132 @@ function handleChoiceButtonClick(button, updateFunction, errorId, dynamicSpan) {
 }
 
 function validateZipCode(input, errorId, updateFunction) {
-    const validationRegex = /^[0-9]*$/i;
-    const errorMessage = "Please enter a valid 5-digit zip code";
-    const length = 5;
+    let timeoutId;
 
-    const zipCodeInput = document.getElementById(input.id);
-    const errorElement = document.getElementById(errorId);
-
-    const zipCode = zipCodeInput.value;
-
-    if (!validationRegex.test(zipCode) || zipCode.length !== length) {
-        errorElement.textContent = errorMessage;
-        updateFunction("", input.id);
-    } else {
-        errorElement.textContent = "";
-        updateFunction(zipCode, input.id);
+    const validation = () => {
+        const validationRegex = /^[0-9]*$/i;
+        const errorMessage = "Please enter a valid 5-digit zip code";
+        const length = 5;
+    
+        const zipCodeInput = document.getElementById(input.id);
+        const errorElement = document.getElementById(errorId);
+    
+        const zipCode = zipCodeInput.value;
+    
+        if (!validationRegex.test(zipCode) || zipCode.length !== length) {
+            errorElement.textContent = errorMessage;
+            updateFunction("", input.id);
+        } else {
+            errorElement.textContent = "";
+            updateFunction(zipCode, input.id);
+        }
+    
+        if (!zipCode) {
+            errorElement.textContent = "";
+        }
     }
+
+    clearTimeout(timeoutId);
+
+    timeoutId = setTimeout(() => {
+        validation()
+    }, 1000)
 }
 
 function validateFullName(input, errorId, updateFuntion) {
-    const validationRegex = /^[A-Za-z\s'-]+$/;
-    const errorMessage = "Please enter a valid name"
+    let timeoutId;
 
-    const fullNameInput = document.getElementById(input.id);
-    const errorSpan = document.getElementById(errorId)
-
-    const fullName = fullNameInput.value;
-
-    if (!validationRegex.test(fullName)) {
-        errorSpan.textContent = errorMessage;
-        updateFuntion("", input.id);
-    } else {
-        errorSpan.textContent = "";
-        updateFuntion(fullName);
+    const validation = () => {
+        const validationRegex = /^[A-Za-z\s'-]+$/;
+        const errorMessage = "Please enter a valid name"
+    
+        const fullNameInput = document.getElementById(input.id);
+        const errorSpan = document.getElementById(errorId)
+    
+        const fullName = fullNameInput.value;
+    
+        if (!validationRegex.test(fullName)) {
+            errorSpan.textContent = errorMessage;
+            updateFuntion("", input.id);
+        } else {
+            errorSpan.textContent = "";
+            updateFuntion(fullName);
+        }
+    
+        if (!fullName) {
+            errorSpan.textContent = "";
+        }
     }
+
+    clearTimeout(timeoutId);
+
+    timeoutId = setTimeout(() => {
+        validation();
+    }, 1000)
 }
 
 function validateEmail(input, errorId, updateFunction) {
-    const validationRegex = /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
-    const errorMessage = "Please enter a valid email";
+    let timeoutId;
 
-    const emailInput = document.getElementById(input.id);
-    const errorSpan = document.getElementById(errorId);
-
-    const email = emailInput.value
-
-    if (!validationRegex.test(email)) {
-        errorSpan.textContent = errorMessage;
-        updateFunction("", input.id);
-    } else {
-        errorSpan.textContent = "";
-        updateFunction(email);
+    const validation = () => {
+        const validationRegex = /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
+        const errorMessage = "Please enter a valid email";
+    
+        const emailInput = document.getElementById(input.id);
+        const errorSpan = document.getElementById(errorId);
+    
+        const email = emailInput.value
+    
+        if (!validationRegex.test(email)) {
+            errorSpan.textContent = errorMessage;
+            updateFunction("", input.id);
+        } else {
+            errorSpan.textContent = "";
+            updateFunction(email);
+        }
+    
+        if (!email) {
+            errorSpan.textContent = "";
+        }
     }
 
+    clearTimeout(timeoutId);
+
+    timeoutId = setTimeout(() => {
+        validation()
+    }, 1000)
 }
 
 function validatePhone(errorId, updateFunction) {
-    const phoneNumber = phoneInput.getNumber();
-    const isValid = phoneInput.isValidNumber();
-    const dynamicField = document.querySelector('.phone-number-field');
+    let timeoutId;
 
-    const errorMessage = "Please enter a valid phone number.";
-    const errorSpan = document.getElementById(errorId);
-
-    if (!isValid) {
-        errorSpan.textContent = errorMessage;
-        updateFunction("");
-    } else {
-        dynamicField.textContent = phoneNumber;
-        errorSpan.textContent = "";
-        updateFunction(phoneNumber);
+    const validation = () => {
+        const phoneNumber = phoneInput.getNumber();
+        const isValid = phoneInput.isValidNumber();
+        const dynamicField = document.querySelector('.phone-number-field');
+    
+        const errorMessage = "Please enter a valid phone number.";
+        const errorSpan = document.getElementById(errorId);
+    
+        if (!isValid) {
+            errorSpan.textContent = errorMessage;
+            updateFunction("");
+        } else {
+            dynamicField.textContent = phoneNumber;
+            errorSpan.textContent = "";
+            updateFunction(phoneNumber);
+        }
+    
+        if (!phoneInput) {
+            errorSpan.textContent = "";
+        }
     }
+
+    clearTimeout(timeoutId);
+
+    timeoutId = setTimeout(() => {
+        validation()
+    }, 1000)
 }
 
 function validateFirstStep() {

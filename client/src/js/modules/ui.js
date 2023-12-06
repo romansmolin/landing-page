@@ -47,7 +47,7 @@ function activateLoader() {
             return simulateLoading(2000);
         })
         .then(() => {
-            navigateStep(4, 3);
+            // navigateStep(4, 3);
         })
         .catch(error => {
             console.error('An error occurred:', error);

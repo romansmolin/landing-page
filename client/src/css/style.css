@@ -272,6 +272,7 @@
 }
 .step-2__form .container .choise-buttons .button.selected, .step-2__form .container .choise-buttons .button:hover {
   border-color: #DC3545;
+  border: 1px solid #DC3545;
 }
 .step-2__form .container .choise-buttons .button.selected p, .step-2__form .container .choise-buttons .button:hover p {
   color: #DC3545;
@@ -832,12 +833,14 @@ h3 {
   opacity: 0;
   transition: opacity 0.3s, right 0.3s;
 }
-.submit:hover {
-  background-color: #aa2a36;
-}
-.submit:hover img {
-  opacity: 1;
-  right: 15px;
+@media (min-width: 992px) {
+  .submit:hover {
+    background-color: #aa2a36;
+  }
+  .submit:hover img {
+    opacity: 1;
+    right: 15px;
+  }
 }
 
 .form-input {
@@ -859,7 +862,12 @@ h3 {
   font-size: 15px;
 }
 .form-input:focus-visible {
-  border: 1px solid #DC3545;
+  border: 1px solid #5e696e;
+  outline: 0;
+}
+
+.wrong:focus-visible {
+  border-color: #DC3545;
   outline: 0;
 }
 

@@ -98,6 +98,7 @@
                     &.selected,
                     &:hover {
                         border-color: $primary-color;
+                        border: 1px solid #DC3545;
 
                         p {
                             color: $primary-color;

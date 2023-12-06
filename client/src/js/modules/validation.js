@@ -67,10 +67,12 @@ function validateZipCode(input, errorId, updateFunction) {
 
         if (!validationRegex.test(zipCode) || zipCode.length !== length) {
             errorElement.textContent = errorMessage;
+            input.classList.add("wrong")
             updateFunction("", input.id);
             setValidationIcon(input.id, false)
         } else {
             errorElement.textContent = "";
+            input.classList.remove("wrong")
             updateFunction(zipCode, input.id);
             setValidationIcon(input.id, true)
         }
@@ -101,10 +103,12 @@ function validateFullName(input, errorId, updateFuntion) {
 
         if (!validationRegex.test(fullName)) {
             errorSpan.textContent = errorMessage;
+            input.classList.add("wrong")
             updateFuntion("", input.id);
             setValidationIcon(input.id, false)
         } else {
             errorSpan.textContent = "";
+            input.classList.remove("wrong")
             updateFuntion(fullName);
             setValidationIcon(input.id, true)
         }
@@ -135,10 +139,12 @@ function validateEmail(input, errorId, updateFunction) {
 
         if (!validationRegex.test(email)) {
             errorSpan.textContent = errorMessage;
+            input.classList.add("wrong")
             updateFunction("", input.id);
             setValidationIcon(input.id, false)
         } else {
             errorSpan.textContent = "";
+            input.classList.remove("wrong")
             updateFunction(email);
             setValidationIcon(input.id, true)
         }
@@ -168,10 +174,12 @@ function validatePhone(errorId, updateFunction) {
 
         if (!isValid) {
             errorSpan.textContent = errorMessage;
+            input.classList.add("wrong")
             updateFunction("");
             setValidationIcon(input.id, false)
         } else {
             dynamicField.textContent = phoneNumber;
+            input.classList.remove("wrong")
             errorSpan.textContent = "";
             updateFunction(phoneNumber);
             setValidationIcon(input.id, true)

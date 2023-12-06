@@ -535,7 +535,7 @@
 .footer .wrapper {
   display: flex;
   align-items: center;
-  padding: 20px 0px;
+  padding: 10px 0px;
   margin: 0 auto;
   gap: 10px;
 }

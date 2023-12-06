@@ -624,7 +624,7 @@
     display: none;
   }
   .step-1__form {
-    gap: 20px;
+    gap: 15px;
   }
   .step-1__form h2 {
     margin-top: 20px;
@@ -664,7 +664,7 @@
   .step-2__form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
   }
   .step-2__form h3 {
     margin-top: none;
@@ -690,7 +690,7 @@
   .step-4__form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
   }
   .step-4__form h3 {
     margin-top: none;

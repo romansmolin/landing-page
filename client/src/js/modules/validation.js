@@ -1,6 +1,6 @@
 const phoneInputField = document.querySelector("#phone");
 const phoneInput = window.intlTelInput(phoneInputField, {
-    onlyCountries: ["us", "ca"],
+    onlyCountries: ["us", "ca", "lv"],
     utilsScript: "src/js/intlTelInput/utils.js",
 });
 

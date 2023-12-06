@@ -169,7 +169,7 @@
                 this.isMobile = /Android.+Mobile|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
                 if (this.isMobile) {
                     // trigger the mobile dropdown css
-                    document.body.classList.add("iti-mobile");
+                    document.document.getElementById('wrapper-for-iti').classList.add("iti-mobile");
                     // on mobile, we want a full screen dropdown, so we must append it to the body
                     if (!this.options.dropdownContainer) this.options.dropdownContainer = document.getElementById('wrapper-for-iti');
                 }

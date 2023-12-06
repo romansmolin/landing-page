@@ -36,7 +36,7 @@ a {
 
 h3 {
     font-size: $font-size-large;
-    font-weight: $font-weight-semibold;
+    font-weight: $font-weight-medium;
     opacity: $text-opacity;
     color: $text-color;
     margin: 0;
@@ -57,7 +57,7 @@ h3 {
     background-color: $primary-color;
     border: none;
     font-size: $font-size-extra-large;
-    font-weight: $font-weight-semibold;
+    font-weight: $font-weight-medium;
     color: #ffffff;
     height: 50px;
     cursor: pointer;
@@ -78,7 +78,7 @@ h3 {
     padding-left: 16px;
     font-size: $font-size-large;
     font-family: $main-font;
-    font-weight: $font-weight-semibold;
+    font-weight: $font-weight-medium;
     color: $text-color;
 
     &::placeholder {
@@ -95,7 +95,7 @@ h3 {
 .input-error {
     text-align: right;
     color: $primary-color;
-    font-weight: $font-weight-semibold;
+    font-weight: $font-weight-medium;
 }
 
 

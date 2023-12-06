@@ -5,7 +5,7 @@
 
     p {
         font-size: $font-size-large;
-        font-weight: $font-weight-semibold;
+        font-weight: $font-weight-medium;
         opacity: $text-opacity;
         color: $text-color;
         line-height: 20px;
@@ -21,7 +21,7 @@
 
         h2 {
             font-size: 24px;
-            font-weight: $font-weight-semibold;
+            font-weight: $font-weight-medium;
             text-align: center;
             margin: 0;
             margin-top: 30px;
@@ -39,7 +39,7 @@
             margin: 0;
             opacity: $text-opacity;
             font-size: $font-size-large;
-            font-weight: $font-weight-semibold;
+            font-weight: $font-weight-medium;
             color: $text-color;
         }
 

@@ -21,7 +21,7 @@
 
                 &__label {
                     font-size: $font-size-large;
-                    font-weight: $font-weight-semibold;
+                    font-weight: $font-weight-medium;
                     opacity: $text-opacity;
                     display: flex;
                     gap: 8px;
@@ -29,7 +29,7 @@
 
                 &__value {
                     font-size: $font-size-large;
-                    font-weight: $font-weight-semibold;
+                    font-weight: $font-weight-medium;
                 }
             }
 

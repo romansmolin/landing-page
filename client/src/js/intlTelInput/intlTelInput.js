@@ -166,7 +166,7 @@
                         // trigger the mobile dropdown css
                         document.body.classList.add("iti-mobile");
                         // on mobile, we want a full screen dropdown, so we must append it to the body
-                        if (!this.options.dropdownContainer) this.options.dropdownContainer = document.body;
+                        if (!this.options.dropdownContainer) this.options.dropdownContainer = document.getElementById('wrapper-for-iti');
                     }
                     // these promises get resolved when their individual requests complete
                     // this way the dev can do something like iti.promise.then(...) to know when all requests are

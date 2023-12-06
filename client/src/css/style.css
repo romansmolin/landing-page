@@ -489,6 +489,9 @@
   line-height: 20px;
   text-align: center;
 }
+.step-6__final {
+  margin: auto;
+}
 .step-6__final-text {
   display: flex;
   justify-content: center;
@@ -812,4 +815,8 @@ h3 {
 
 .info__value:first-letter {
   text-transform: uppercase;
+}
+
+.step-4.iti__country-list {
+  overflow-y: unset;
 }/*# sourceMappingURL=style.css.map */

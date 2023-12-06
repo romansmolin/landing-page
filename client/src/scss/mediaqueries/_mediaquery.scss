@@ -6,7 +6,7 @@
 @import 'blocks/step-4';
 
 
-@media only screen and (max-width: 991.98px) {
+@media (max-width: 991.98px) {
 
     body,
     html {
@@ -15,5 +15,17 @@
 
     .wrapper {
         width: 100% !important;
+    }
+
+    .form .banner {
+        display: block;
+        height: 120px;
+        width: calc(100% + 56px);
+        margin: 10px -30px 0px -30px;
+        background: url('../img/background_image_mobile_devices.png');
+        background-size: cover;
+        background-position: right;
+        box-sizing: border-box;
+        background-repeat: no-repeat;
     }
 }

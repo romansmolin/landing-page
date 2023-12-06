@@ -292,6 +292,10 @@
 }
 
 .loader__container {
+  position: absolute;
+  right: 50%;
+  transform: translate(50%, -50%);
+  top: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -617,21 +621,22 @@
     justify-content: unset;
   }
   .step-1 .disclaimer {
-    height: 120px;
-    width: calc(100% + 56px);
-    margin-left: -30px;
-    margin-right: -30px;
-    background: url(../img/background_image_mobile_devices.png);
-    background-size: cover;
-    background-position: right;
-    box-sizing: border-box;
-    background-repeat: no-repeat;
-  }
-  .step-1 .disclaimer p {
     display: none;
+  }
+  .step-1__form {
+    gap: 20px;
+  }
+  .step-1__form h2 {
+    margin-top: 30px;
   }
   .step-1__form h2::after {
     display: none;
+  }
+  .step-1__form h3 {
+    margin-top: none;
+  }
+  .step-1__form .container {
+    gap: 0;
   }
   .step-1__form .container .choise-buttons .button {
     height: 75px;
@@ -656,52 +661,66 @@
   }
 }
 @media only screen and (max-width: 991.98px) {
-  .step-2 .disclaimer {
-    display: block;
+  .step-2__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .step-2__form h3 {
+    margin-top: none;
+  }
+  .step-2__form .info__container {
+    margin-top: 30px;
+    gap: 0;
+  }
+  .step-2__form .container {
+    gap: 0;
+  }
+  .step-2__form .container .choise-buttons .button {
     height: 120px;
-    width: calc(100% + 56px);
-    margin-left: -30px;
-    margin-right: -30px;
-    background: url(../img/background_image_mobile_devices.png);
-    background-size: cover;
-    background-position: right;
-    box-sizing: border-box;
-    background-repeat: no-repeat;
   }
-  .step-2 .info__container {
-    margin-top: 10px;
-  }
-  .step-2 .container .choise-buttons .button {
-    height: 100px;
-  }
-  .step-2 .container .choise-buttons .button p {
+  .step-2__form .container .choise-buttons .button p {
     font-size: 14px;
   }
-  .step-2 .container .choise-buttons .button.size {
-    height: 75px;
+  .step-2__form .container .choise-buttons .button.size {
+    height: 100px;
   }
 }
 @media only screen and (max-width: 991.98px) {
-  .step-4 .disclaimer {
-    display: block;
-    height: 120px;
-    width: calc(100% + 56px);
-    margin-left: -30px;
-    margin-right: -30px;
-    background: url(../img/background_image_mobile_devices.png);
-    background-size: cover;
-    background-position: right;
-    box-sizing: border-box;
-    background-repeat: no-repeat;
+  .step-4__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .step-4__form h3 {
+    margin-top: none;
+  }
+  .step-4__form .info__container {
+    margin-top: 30px;
+    gap: 0;
+  }
+  .step-4__form .container {
+    gap: 0;
   }
 }
-@media only screen and (max-width: 991.98px) {
+@media (max-width: 991.98px) {
   body,
   html {
     overflow: unset !important;
   }
   .wrapper {
     width: 100% !important;
+  }
+  .form .banner {
+    display: block;
+    height: 120px;
+    width: calc(100% + 56px);
+    margin: 10px -30px 0px -30px;
+    background: url("../img/background_image_mobile_devices.png");
+    background-size: cover;
+    background-position: right;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
   }
 }
 * {

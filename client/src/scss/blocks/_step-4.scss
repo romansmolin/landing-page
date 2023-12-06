@@ -20,15 +20,17 @@
                 justify-content: space-between;
 
                 &__label {
-                    font-size: $font-size-large;
+                    font-size: 15px;
                     font-weight: $font-weight-medium;
                     opacity: $text-opacity;
                     display: flex;
                     gap: 8px;
+                    justify-content: center;
+                    align-items: center;
                 }
 
                 &__value {
-                    font-size: $font-size-large;
+                    font-size: 15px;
                     font-weight: $font-weight-medium;
                 }
             }

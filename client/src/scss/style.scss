@@ -32,7 +32,7 @@ a {
 }
 
 h3 {
-    font-size: $font-size-large;
+    font-size: 15px;
     font-weight: $font-weight-medium;
     opacity: $text-opacity;
     color: $text-color;
@@ -51,6 +51,22 @@ h3 {
     flex: 1;
 }
 
+.input-wrapper {
+    position: relative;
+
+    .input-icon {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
 .submit {
     background-color: $primary-color;
     border: none;
@@ -62,10 +78,26 @@ h3 {
     position: relative;
     transition: background-color 0.3s;
     width: 100%;
-    margin-top: 15px;
+    margin-top: 20px;
+    position: relative;
+    
+    img {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 0;
+        transition: opacity 0.3s, right 0.3s;
+
+    }
 
     &:hover {
         background-color: $primary-color-hover;
+
+        img {
+            opacity: 1;
+            right: 15px;
+        }
     }
 }
 
@@ -81,7 +113,7 @@ h3 {
 
     &::placeholder {
         opacity: $text-opacity;
-        font-size: $font-size-large;
+        font-size: 15px;
     }
 
     &:focus-visible {
@@ -94,6 +126,7 @@ h3 {
     text-align: right;
     color: $primary-color;
     font-weight: $font-weight-medium;
+    font-size: 15px;
 }
 
 

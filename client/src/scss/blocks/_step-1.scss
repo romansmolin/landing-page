@@ -6,6 +6,7 @@
     .disclaimer {
         color: $text-color;
         font-weight: $font-weight-medium;
+        font-size: 15px;
 
         p {
             margin: 0;
@@ -53,7 +54,7 @@
                     position: relative;
 
                     p {
-                        font-size: $font-size-large;
+                        font-size: 15px;
                         font-weight: $font-weight-medium;
                         color: $text-color;
                     }
@@ -122,7 +123,7 @@
             }
 
             p {
-                font-size: $font-size-large;
+                font-size: 15px;
                 font-weight: $font-weight-medium;
                 opacity: $text-opacity;
                 margin: 0;

@@ -83,6 +83,7 @@
 .step-1 .disclaimer {
   color: #263238;
   font-weight: 500;
+  font-size: 15px;
 }
 .step-1 .disclaimer p {
   margin: 0;
@@ -127,7 +128,7 @@
   position: relative;
 }
 .step-1__form.container .choise-buttons .button p {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   color: #263238;
 }
@@ -178,7 +179,7 @@
   align-items: center;
 }
 .step-1__form__description p {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   opacity: 0.5;
   margin: 0;
@@ -203,14 +204,16 @@
   justify-content: space-between;
 }
 .step-2__form .info__container .info__label {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   opacity: 0.5;
   display: flex;
   gap: 8px;
+  justify-content: center;
+  align-items: center;
 }
 .step-2__form .info__container .info__value {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
 }
 .step-2__form .info__container::after {
@@ -245,7 +248,7 @@
   margin: 0;
 }
 .step-2__form .container .choise-buttons .button p {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   margin: 0;
   color: #263238;
@@ -254,7 +257,7 @@
   border-right: none;
 }
 .step-2__form .container .choise-buttons .button:not(:last-child).selected, .step-2__form .container .choise-buttons .button:not(:last-child):hover {
-  border-right: 0.1px solid #DC3545;
+  border-right: 1px solid #DC3545;
 }
 .step-2__form .container .choise-buttons .button:not(:last-child).selected + button, .step-2__form .container .choise-buttons .button:not(:last-child):hover + button {
   border-left: none;
@@ -374,14 +377,16 @@
   justify-content: space-between;
 }
 .step-3__form .info__container .info__label {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   opacity: 0.5;
   display: flex;
   gap: 8px;
+  justify-content: center;
+  align-items: center;
 }
 .step-3__form .info__container .info__value {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
 }
 .step-3__form .info__container::after {
@@ -414,14 +419,16 @@
   justify-content: space-between;
 }
 .step-4__form .info__container .info__label {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   opacity: 0.5;
   display: flex;
   gap: 8px;
+  justify-content: center;
+  align-items: center;
 }
 .step-4__form .info__container .info__value {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
 }
 .step-4__form .info__container::after {
@@ -446,6 +453,7 @@
 }
 .step-5__form h2 {
   text-align: center;
+  color: #263238;
 }
 .step-5__form h2 a {
   color: #263238;
@@ -482,7 +490,7 @@
   flex-grow: 1;
 }
 .step-6 p {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   opacity: 0.5;
   color: #263238;
@@ -515,7 +523,7 @@
 .step-6__cta-button p {
   margin: 0;
   opacity: 0.5;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   color: #263238;
 }
@@ -644,6 +652,9 @@
   .step-1__form .container .choise-buttons .button {
     height: 75px;
   }
+  .step-1__form .container .choise-buttons .button p {
+    font-size: 16px;
+  }
   .step-1__form .container .choise-buttons .button svg {
     height: 30px;
   }
@@ -725,6 +736,27 @@
     box-sizing: border-box;
     background-repeat: no-repeat;
   }
+  .step-1 h3, .step-2 h3, .step-3 h3, .step-4 h3, .step-5 h3, .step-6 h3 {
+    font-size: 16px;
+  }
+  .step-1 .input-error, .step-2 .input-error, .step-3 .input-error, .step-4 .input-error, .step-5 .input-error, .step-6 .input-error {
+    font-size: 16px;
+  }
+  .step-1__form .info__container .info__label, .step-2__form .info__container .info__label, .step-3__form .info__container .info__label, .step-4__form .info__container .info__label, .step-5__form .info__container .info__label, .step-6__form .info__container .info__label {
+    font-size: 16px;
+  }
+  .step-1__form .info__container .info__value, .step-2__form .info__container .info__value, .step-3__form .info__container .info__value, .step-4__form .info__container .info__value, .step-5__form .info__container .info__value, .step-6__form .info__container .info__value {
+    font-size: 16px;
+  }
+  .step-1 .form-input::-moz-placeholder, .step-2 .form-input::-moz-placeholder, .step-3 .form-input::-moz-placeholder, .step-4 .form-input::-moz-placeholder, .step-5 .form-input::-moz-placeholder, .step-6 .form-input::-moz-placeholder {
+    font-size: 16px;
+  }
+  .step-1 .form-input::placeholder, .step-2 .form-input::placeholder, .step-3 .form-input::placeholder, .step-4 .form-input::placeholder, .step-5 .form-input::placeholder, .step-6 .form-input::placeholder {
+    font-size: 16px;
+  }
+  .step-6 p {
+    font-size: 16px;
+  }
 }
 * {
   box-sizing: border-box;
@@ -745,7 +777,7 @@ a {
 }
 
 h3 {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   opacity: 0.5;
   color: #263238;
@@ -763,6 +795,21 @@ h3 {
   flex: 1;
 }
 
+.input-wrapper {
+  position: relative;
+}
+.input-wrapper .input-icon {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .submit {
   background-color: #DC3545;
   border: none;
@@ -774,10 +821,23 @@ h3 {
   position: relative;
   transition: background-color 0.3s;
   width: 100%;
-  margin-top: 15px;
+  margin-top: 20px;
+  position: relative;
+}
+.submit img {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.3s, right 0.3s;
 }
 .submit:hover {
   background-color: #aa2a36;
+}
+.submit:hover img {
+  opacity: 1;
+  right: 15px;
 }
 
 .form-input {
@@ -792,11 +852,11 @@ h3 {
 }
 .form-input::-moz-placeholder {
   opacity: 0.5;
-  font-size: 16px;
+  font-size: 15px;
 }
 .form-input::placeholder {
   opacity: 0.5;
-  font-size: 16px;
+  font-size: 15px;
 }
 .form-input:focus-visible {
   border: 1px solid #DC3545;
@@ -807,6 +867,7 @@ h3 {
   text-align: right;
   color: #DC3545;
   font-weight: 500;
+  font-size: 15px;
 }
 
 .iti--allow-dropdown {

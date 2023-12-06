@@ -4,6 +4,29 @@ const phoneInput = window.intlTelInput(phoneInputField, {
     utilsScript: "src/js/intlTelInput/utils.js",
 });
 
+function setValidationIcon(inputId, isOkay) {
+    const iconPath = isOkay ? "src/icons/correct.svg" : "src/icons/wrong.svg";
+    const iconAlt = isOkay ? "Validation Passed" : "Validation Failed";
+
+    // Find the closest ancestor with the class "input-icon"
+    const inputIcon = document.querySelector(`.input-icon.${inputId}`)
+
+    if (!inputIcon) {
+        console.error("No .input-icon found for the input element with id:", inputId);
+        return;
+    }
+
+    let validationIcon = inputIcon.querySelector("img");
+
+    if (!validationIcon) {
+        validationIcon = document.createElement("img");
+        inputIcon.appendChild(validationIcon);
+    }
+
+    validationIcon.src = iconPath;
+    validationIcon.alt = iconAlt;
+}
+
 //TODO: Refactor code
 
 function handleChoiceButtonClick(button, updateFunction, errorId, dynamicSpan) {
@@ -25,7 +48,7 @@ function handleChoiceButtonClick(button, updateFunction, errorId, dynamicSpan) {
     dynamicFields.forEach(field => {
         field.textContent = data;
     })
-    
+
     updateFunction(data);
 }
 
@@ -36,20 +59,22 @@ function validateZipCode(input, errorId, updateFunction) {
         const validationRegex = /^[0-9]*$/i;
         const errorMessage = "Please enter a valid 5-digit zip code";
         const length = 5;
-    
+
         const zipCodeInput = document.getElementById(input.id);
         const errorElement = document.getElementById(errorId);
-    
+
         const zipCode = zipCodeInput.value;
-    
+
         if (!validationRegex.test(zipCode) || zipCode.length !== length) {
             errorElement.textContent = errorMessage;
             updateFunction("", input.id);
+            setValidationIcon(input.id, false)
         } else {
             errorElement.textContent = "";
             updateFunction(zipCode, input.id);
+            setValidationIcon(input.id, true)
         }
-    
+
         if (!zipCode) {
             errorElement.textContent = "";
         }
@@ -68,20 +93,22 @@ function validateFullName(input, errorId, updateFuntion) {
     const validation = () => {
         const validationRegex = /^[A-Za-z\s'-]+$/;
         const errorMessage = "Please enter a valid name"
-    
+
         const fullNameInput = document.getElementById(input.id);
         const errorSpan = document.getElementById(errorId)
-    
+
         const fullName = fullNameInput.value;
-    
+
         if (!validationRegex.test(fullName)) {
             errorSpan.textContent = errorMessage;
             updateFuntion("", input.id);
+            setValidationIcon(input.id, false)
         } else {
             errorSpan.textContent = "";
             updateFuntion(fullName);
+            setValidationIcon(input.id, true)
         }
-    
+
         if (!fullName) {
             errorSpan.textContent = "";
         }
@@ -100,20 +127,22 @@ function validateEmail(input, errorId, updateFunction) {
     const validation = () => {
         const validationRegex = /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
         const errorMessage = "Please enter a valid email";
-    
+
         const emailInput = document.getElementById(input.id);
         const errorSpan = document.getElementById(errorId);
-    
+
         const email = emailInput.value
-    
+
         if (!validationRegex.test(email)) {
             errorSpan.textContent = errorMessage;
             updateFunction("", input.id);
+            setValidationIcon(input.id, false)
         } else {
             errorSpan.textContent = "";
             updateFunction(email);
+            setValidationIcon(input.id, true)
         }
-    
+
         if (!email) {
             errorSpan.textContent = "";
         }
@@ -133,19 +162,21 @@ function validatePhone(errorId, updateFunction) {
         const phoneNumber = phoneInput.getNumber();
         const isValid = phoneInput.isValidNumber();
         const dynamicField = document.querySelector('.phone-number-field');
-    
+
         const errorMessage = "Please enter a valid phone number.";
         const errorSpan = document.getElementById(errorId);
-    
+
         if (!isValid) {
             errorSpan.textContent = errorMessage;
             updateFunction("");
+            setValidationIcon(input.id, false)
         } else {
             dynamicField.textContent = phoneNumber;
             errorSpan.textContent = "";
             updateFunction(phoneNumber);
+            setValidationIcon(input.id, true)
         }
-    
+
         if (!phoneInput) {
             errorSpan.textContent = "";
         }
@@ -181,8 +212,10 @@ function validateFirstStep() {
         for (const { name, errorSpan, errorMessage } of filedsToValidate) {
             if (!formData[name]) {
                 errorSpan.textContent = errorMessage;
+                setValidationIcon(name, false)
             } else {
                 errorSpan.textContent = "";
+                setValidationIcon(name, true)
             }
         }
     } else {
@@ -208,8 +241,10 @@ function validateSecondStep() {
         for (const { name, errorSpan, errorMessage } of filedsToValidate) {
             if (!formData[name]) {
                 errorSpan.textContent = errorMessage;
+                setValidationIcon(name, false)
             } else {
                 errorSpan.textContent = "";
+                setValidationIcon(name, true)
             }
         }
     } else {
@@ -240,8 +275,10 @@ function validateFourthStep() {
         for (const { name, errorSpan, errorMessage } of filedsToValidate) {
             if (!formData[name]) {
                 errorSpan.textContent = errorMessage;
+                setValidationIcon(name, false)
             } else {
                 errorSpan.textContent = "";
+                setValidationIcon(name, true)
             }
         }
     } else {

@@ -28,4 +28,40 @@
         box-sizing: border-box;
         background-repeat: no-repeat;
     }
+
+    .step-1, .step-2, .step-3, .step-4, .step-5, .step-6 {
+        h3 {
+            font-size: $font-size-large;
+        }
+
+        .input-error {
+            font-size: $font-size-large;
+        }
+
+        &__form {
+            .info__container {
+                .info {
+                    &__label {
+                        font-size: $font-size-large;
+                    }
+
+                    &__value {
+                        font-size: $font-size-large;
+                    }
+                }
+            }
+        }
+
+        .form-input {
+            &::placeholder {
+                font-size: $font-size-large;
+            }
+        }
+    }
+
+    .step-6 {
+        p {
+            font-size: $font-size-large;
+        }
+    }
 }

@@ -35,6 +35,10 @@
                     .button {
                         height: 75px;
 
+                        p {
+                            font-size: $font-size-large;
+                        }
+
                         svg {
                             height: 30px;
                         }

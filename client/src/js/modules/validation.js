@@ -117,8 +117,20 @@ function validatePhone(errorId, updateFunction) {
     }, 1000)
 }
 
-function validateFirstStep() {
-    console.log(formData);
+async function validateFirstStep() {
+
+    const movingToDynamicFields = document.querySelectorAll('.dzip-field')
+    const movingFromDynamicFields = document.querySelectorAll('.ozip-field')
+
+    const updateDynamicFields = (response, dynamicFields) => {
+        const town = response[0].address.town;
+        const stateCode = response[0].address.state_code.toUpperCase();
+
+        dynamicFields.forEach(item => {
+            item.textContent = `${town}, ${stateCode}`;
+        });
+    }
+
     if (!formData.dzip || !formData.ozip || !formData.propertyType) {
         const filedsToValidate = [
             {
@@ -141,17 +153,26 @@ function validateFirstStep() {
         for (const { name, errorSpan, errorMessage } of filedsToValidate) {
             if (!formData[name]) {
                 errorSpan.textContent = errorMessage;
-                if(name !== 'propertyType') {
+                if (name !== 'propertyType') {
                     setValidationIcon(name, false)
                 }
             } else {
                 errorSpan.textContent = "";
-                if(name !== 'propertyType') {
+                if (name !== 'propertyType') {
                     setValidationIcon(name, true)
                 }
             }
         }
     } else {
+
+        getCityAndState(formData.dzip)
+            .then(response => updateDynamicFields(response, movingToDynamicFields))
+            .catch(error => console.error("Error:", error));
+
+        getCityAndState(formData.ozip)
+            .then(response => updateDynamicFields(response, movingFromDynamicFields))
+            .catch(error => console.error("Error:", error));
+
         navigateStep(2, 1)
     }
 }

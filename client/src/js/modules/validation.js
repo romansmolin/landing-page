@@ -28,15 +28,10 @@ function handleChoiceButtonClick(button, updateFunction, errorId, dynamicSpan) {
 }
 
 function validateInput(input, errorId, updateFunction, validationRegex, errorMessage) {
-    let timeoutId;
     const errorSpan = document.getElementById(errorId);
     const condition = !validationRegex.test(input.value);
 
-    clearTimeout(timeoutId);
-
-    timeoutId = setTimeout(() => {
-        checkIfValid(condition, input, input.value, errorSpan, errorMessage, updateFunction)
-    }, 1000)
+    checkIfValid(condition, input, input.value, errorSpan, errorMessage, updateFunction)
 }
 
 function checkIfValid(condition, input, inputValue, errorSpan, errorMessage, updateFunction) {
@@ -59,8 +54,6 @@ function checkIfValid(condition, input, inputValue, errorSpan, errorMessage, upd
 }
 
 function validateZipCode(input, errorId, updateFunction) {
-    let timeoutId;
-
     const errorMessage = "Please enter a valid 5-digit US or CA zip code";
     const minLength = 5;
 
@@ -73,13 +66,8 @@ function validateZipCode(input, errorId, updateFunction) {
     const isUSZipCode = usZipCodePattern.test(zipCode);
     const isCAPostalCode = caPostalCodePattern.test(zipCode);
 
-    const condition = !(isUSZipCode || isCAPostalCode) || zipCode.length < minLength
-
-    clearTimeout(timeoutId);
-
-    timeoutId = setTimeout(() => {
-        checkIfValid(condition, input, input.value, errorSpan, errorMessage, updateFunction);
-    }, 1000)
+    const condition = !(isUSZipCode || isCAPostalCode)
+    checkIfValid(condition, input, input.value, errorSpan, errorMessage, updateFunction);
 
 }
 
@@ -98,8 +86,6 @@ function validateEmail(input, errorId, updateFunction) {
 }
 
 function validatePhone(errorId, updateFunction) {
-    let timeoutId;
-
     const phoneNumber = phoneInput.getNumber();
     const isValid = phoneInput.isValidNumber();
 
@@ -112,9 +98,7 @@ function validatePhone(errorId, updateFunction) {
 
     clearTimeout(timeoutId);
 
-    timeoutId = setTimeout(() => {
-        checkIfValid(condition, inputField, phoneNumber, errorSpan, errorMessage, updateFunction)
-    }, 1000)
+    checkIfValid(condition, inputField, phoneNumber, errorSpan, errorMessage, updateFunction)
 }
 
 async function validateFirstStep() {
@@ -123,7 +107,7 @@ async function validateFirstStep() {
     const movingFromDynamicFields = document.querySelectorAll('.ozip-field')
 
     const updateDynamicFields = (response, dynamicFields) => {
-        const town = response[0].address.town;
+        const town = response[0].address.county;
         const stateCode = response[0].address.state_code.toUpperCase();
 
         dynamicFields.forEach(item => {

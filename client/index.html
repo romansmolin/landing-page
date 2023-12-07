@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="src/css/style.css">
     <link rel="stylesheet" href="src/css/intTelInput/intlTelInput.css">
-
+    
     <script src="src/js/intlTelInput/intlTelInput.min.js"></script>
     <title>Getmovers Landing Page</title>
 </head>
@@ -79,7 +79,7 @@
                                     class="form-input" 
                                     id="ozip"
                                     placeholder="Moving From Zip Code"
-                                    oninput="validateZipCode(this, 'ozip-error', updateZipCode)"
+                                    onblur="validateZipCode(this, 'ozip-error', updateZipCode)"
                                 >
                                 <div class="input-icon ozip"></div>
                             </div>
@@ -95,7 +95,7 @@
                                     class="form-input" 
                                     id="dzip"
                                     placeholder="Moving To Zip Code"
-                                    oninput="validateZipCode(this, 'dzip-error', updateZipCode)"
+                                    onblur="validateZipCode(this, 'dzip-error', updateZipCode)"
                                 >
                                 <div class="input-icon dzip"></div>
                             </div>
@@ -372,7 +372,7 @@
                                     class="form-input" 
                                     id="fullname"
                                     placeholder="Full Name"
-                                    oninput="validateFullName(this, 'fullname-error', updateName)"
+                                    onblur="validateFullName(this, 'fullname-error', updateName)"
                                 >
                                 <div class="input-icon fullname"></div>
                             </div>
@@ -388,7 +388,7 @@
                                     class="form-input" 
                                     id="email"
                                     placeholder="Enter Your Email"
-                                    oninput="validateEmail(this, 'email-error', updateEmail)"
+                                    onblur="validateEmail(this, 'email-error', updateEmail)"
                                 >
                                 <div class="input-icon email"></div>
                             </div>
@@ -403,7 +403,7 @@
                                     class="form-input" 
                                     id="phone"
                                     placeholder="Enter Your Phone Number"
-                                    oninput="validatePhone('phone-error', updatePhone)"
+                                    onblur="validatePhone('phone-error', updatePhone)"
                                 >
                                 <div class="input-icon phone"></div>
                             </div>

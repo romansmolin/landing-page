@@ -125,9 +125,8 @@ h3 {
 
 }
 
-.wrong:focus-visible {
+.wrong {
     border-color: $primary-color;
-    outline: 0;
 }
 
 .input-error {

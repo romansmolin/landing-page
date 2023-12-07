@@ -864,9 +864,8 @@ h3 {
   outline: 0;
 }
 
-.wrong:focus-visible {
+.wrong {
   border-color: #DC3545;
-  outline: 0;
 }
 
 .input-error {

@@ -6,7 +6,7 @@ function updatePropertyType(propertyType) {
     formData["propertyType"] = propertyType;
 }
 
-function updateZipCode(zipCode, inputId) {
+function updateZipCode(inputId, zipCode) {
     formData[inputId] = zipCode
 }
 
@@ -18,14 +18,14 @@ function updateMovingDate(movingDate) {
     formData["movedte"] = movingDate;
 }
 
-function updateName(name) {
-    formData["fullName"] = name;
+function updateName(inputId, name) {
+    formData[inputId] = name;
 }
 
-function updateEmail(email) {
-    formData["email"] = email;
+function updateEmail(inputId, email) {
+    formData[inputId] = email;
 }
 
-function updatePhone(phone) {
-    formData["phone"] = phone;
+function updatePhone(inputId, phone) {
+    formData[inputId] = phone;
 }

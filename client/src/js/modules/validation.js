@@ -4,31 +4,6 @@ const phoneInput = window.intlTelInput(phoneInputField, {
     utilsScript: "src/js/intlTelInput/utils.js",
 });
 
-function setValidationIcon(inputId, isOkay) {
-    const iconPath = isOkay ? "src/icons/correct.svg" : "src/icons/wrong.svg";
-    const iconAlt = isOkay ? "Validation Passed" : "Validation Failed";
-
-    // Find the closest ancestor with the class "input-icon"
-    const inputIcon = document.querySelector(`.input-icon.${inputId}`)
-
-    if (!inputIcon) {
-        console.error("No .input-icon found for the input element with id:", inputId);
-        return;
-    }
-
-    let validationIcon = inputIcon.querySelector("img");
-
-    if (!validationIcon) {
-        validationIcon = document.createElement("img");
-        inputIcon.appendChild(validationIcon);
-    }
-
-    validationIcon.src = iconPath;
-    validationIcon.alt = iconAlt;
-}
-
-//TODO: Refactor code
-
 function handleChoiceButtonClick(button, updateFunction, errorId, dynamicSpan) {
     const errorSpan = document.getElementById(errorId);
     const dynamicFields = document.querySelectorAll(dynamicSpan);
@@ -52,152 +27,98 @@ function handleChoiceButtonClick(button, updateFunction, errorId, dynamicSpan) {
     updateFunction(data);
 }
 
+function validateInput(input, errorId, updateFunction, validationRegex, errorMessage) {
+    let timeoutId;
+    const errorSpan = document.getElementById(errorId);
+    const condition = !validationRegex.test(input.value);
+
+    clearTimeout(timeoutId);
+
+    timeoutId = setTimeout(() => {
+        checkIfValid(condition, input, input.value, errorSpan, errorMessage, updateFunction)
+    }, 1000)
+}
+
+function checkIfValid(condition, input, inputValue, errorSpan, errorMessage, updateFunction) {
+
+    if (condition) {
+        errorSpan.textContent = errorMessage;
+        input.classList.add("wrong")
+        updateFunction(input.id, "");
+        setValidationIcon(input.id, false)
+    } else {
+        input.classList.remove("wrong")
+        errorSpan.textContent = "";
+        updateFunction(input.id, inputValue);
+        setValidationIcon(input.id, true)
+    }
+
+    if (!inputValue) {
+        errorSpan.textContent = "";
+    }
+}
+
 function validateZipCode(input, errorId, updateFunction) {
     let timeoutId;
 
-    const validation = () => {
-        const validationRegex = /^[0-9]*$/i;
-        const errorMessage = "Please enter a valid 5-digit zip code";
-        const length = 5;
+    const errorMessage = "Please enter a valid 5-digit US or CA zip code";
+    const minLength = 5;
 
-        const zipCodeInput = document.getElementById(input.id);
-        const errorElement = document.getElementById(errorId);
+    const zipCode = input.value;
+    const errorSpan = document.getElementById(errorId);
 
-        const zipCode = zipCodeInput.value;
+    const usZipCodePattern = /^\d{5}(?:-\d{4})?$/;
+    const caPostalCodePattern = /^[A-Za-z]\d[A-Za-z] \d[A-Za-z]\d$/;
 
-        if (!validationRegex.test(zipCode) || zipCode.length !== length) {
-            errorElement.textContent = errorMessage;
-            input.classList.add("wrong")
-            updateFunction("", input.id);
-            setValidationIcon(input.id, false)
-        } else {
-            errorElement.textContent = "";
-            input.classList.remove("wrong")
-            updateFunction(zipCode, input.id);
-            setValidationIcon(input.id, true)
-        }
+    const isUSZipCode = usZipCodePattern.test(zipCode);
+    const isCAPostalCode = caPostalCodePattern.test(zipCode);
 
-        if (!zipCode) {
-            errorElement.textContent = "";
-        }
-    }
+    const condition = !(isUSZipCode || isCAPostalCode) || zipCode.length < minLength
 
     clearTimeout(timeoutId);
 
     timeoutId = setTimeout(() => {
-        validation()
+        checkIfValid(condition, input, input.value, errorSpan, errorMessage, updateFunction);
     }, 1000)
+
 }
 
 function validateFullName(input, errorId, updateFuntion) {
-    let timeoutId;
+    const validationRegex = /^[A-Za-z\s'-]+$/;
+    const errorMessage = "Please enter a valid name";
 
-    const validation = () => {
-        const validationRegex = /^[A-Za-z\s'-]+$/;
-        const errorMessage = "Please enter a valid name"
-
-        const fullNameInput = document.getElementById(input.id);
-        const errorSpan = document.getElementById(errorId)
-
-        const fullName = fullNameInput.value;
-
-        if (!validationRegex.test(fullName)) {
-            errorSpan.textContent = errorMessage;
-            input.classList.add("wrong")
-            updateFuntion("", input.id);
-            setValidationIcon(input.id, false)
-        } else {
-            errorSpan.textContent = "";
-            input.classList.remove("wrong")
-            updateFuntion(fullName);
-            setValidationIcon(input.id, true)
-        }
-
-        if (!fullName) {
-            errorSpan.textContent = "";
-        }
-    }
-
-    clearTimeout(timeoutId);
-
-    timeoutId = setTimeout(() => {
-        validation();
-    }, 1000)
+    validateInput(input, errorId, updateFuntion, validationRegex, errorMessage);
 }
 
 function validateEmail(input, errorId, updateFunction) {
-    let timeoutId;
+    const validationRegex = /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
+    const errorMessage = "Please enter a valid email";
 
-    const validation = () => {
-        const validationRegex = /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
-        const errorMessage = "Please enter a valid email";
-
-        const emailInput = document.getElementById(input.id);
-        const errorSpan = document.getElementById(errorId);
-
-        const email = emailInput.value
-
-        if (!validationRegex.test(email)) {
-            errorSpan.textContent = errorMessage;
-            input.classList.add("wrong")
-            updateFunction("", input.id);
-            setValidationIcon(input.id, false)
-        } else {
-            errorSpan.textContent = "";
-            input.classList.remove("wrong")
-            updateFunction(email);
-            setValidationIcon(input.id, true)
-        }
-
-        if (!email) {
-            errorSpan.textContent = "";
-        }
-    }
-
-    clearTimeout(timeoutId);
-
-    timeoutId = setTimeout(() => {
-        validation()
-    }, 1000)
+    validateInput(input, errorId, updateFunction, validationRegex, errorMessage);
 }
 
 function validatePhone(errorId, updateFunction) {
     let timeoutId;
 
-    const validation = () => {
-        const phoneNumber = phoneInput.getNumber();
-        const isValid = phoneInput.isValidNumber();
-        const dynamicField = document.querySelector('.phone-number-field');
+    const phoneNumber = phoneInput.getNumber();
+    const isValid = phoneInput.isValidNumber();
 
-        const errorMessage = "Please enter a valid phone number.";
-        const errorSpan = document.getElementById(errorId);
+    const errorMessage = "Please enter a valid phone number.";
+    const errorSpan = document.getElementById(errorId);
 
-        if (!isValid) {
-            errorSpan.textContent = errorMessage;
-            input.classList.add("wrong")
-            updateFunction("");
-            setValidationIcon(input.id, false)
-        } else {
-            dynamicField.textContent = phoneNumber;
-            input.classList.remove("wrong")
-            errorSpan.textContent = "";
-            updateFunction(phoneNumber);
-            setValidationIcon(input.id, true)
-        }
+    const inputField = document.getElementById('phone')
 
-        if (!phoneInput) {
-            errorSpan.textContent = "";
-        }
-    }
+    const condition = !isValid;
 
     clearTimeout(timeoutId);
 
     timeoutId = setTimeout(() => {
-        validation()
+        checkIfValid(condition, inputField, phoneNumber, errorSpan, errorMessage, updateFunction)
     }, 1000)
 }
 
 function validateFirstStep() {
+    console.log(formData);
     if (!formData.dzip || !formData.ozip || !formData.propertyType) {
         const filedsToValidate = [
             {
@@ -220,10 +141,14 @@ function validateFirstStep() {
         for (const { name, errorSpan, errorMessage } of filedsToValidate) {
             if (!formData[name]) {
                 errorSpan.textContent = errorMessage;
-                setValidationIcon(name, false)
+                if(name !== 'propertyType') {
+                    setValidationIcon(name, false)
+                }
             } else {
                 errorSpan.textContent = "";
-                setValidationIcon(name, true)
+                if(name !== 'propertyType') {
+                    setValidationIcon(name, true)
+                }
             }
         }
     } else {
@@ -261,7 +186,9 @@ function validateSecondStep() {
 }
 
 function validateFourthStep() {
-    if (!formData.email || !formData.fullName || !formData.phone) {
+    const phoneDynamicField = document.querySelector('.phone-number-field');
+
+    if (!formData.email || !formData.fullname || !formData.phone) {
         const filedsToValidate = [
             {
                 name: 'email',
@@ -269,7 +196,7 @@ function validateFourthStep() {
                 errorMessage: "Please enter a valid name."
             },
             {
-                name: 'fullName',
+                name: 'fullname',
                 errorSpan: document.getElementById('fullname-error'),
                 errorMessage: 'You Need To Choose One Option.'
             },
@@ -290,6 +217,8 @@ function validateFourthStep() {
             }
         }
     } else {
+        phoneDynamicField.textContent = formData.phone;
+
         sendVerificationCode(formData.phone)
         navigateStep(5, 4)
     }
@@ -314,5 +243,6 @@ async function validateOtp(errorId) {
         });
         errorSpan.textContent = "Please enter a valid PIN code.";
     }
-}
 
+    console.log(formData);
+}

@@ -368,13 +368,11 @@
   display: none;
 }
 .step-3__form {
-  flex: 1;
   display: flex;
   flex-direction: column;
 }
 .step-3__form .info__container {
   margin-top: 20px;
-  margin-bottom: 15px;
 }
 .step-3__form .info__container .info {
   display: flex;

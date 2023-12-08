@@ -105,7 +105,7 @@ function validatePhone(errorId, updateFunction) {
 
     const condition = !isValid;
 
-    if (input.value) {
+    if (phoneNumber) {
         checkIfValid(condition, inputField, phoneNumber, errorSpan, errorMessage, updateFunction)
     }
 }
@@ -135,7 +135,11 @@ async function validateFirstStep() {
 
     const updateDynamicFields = (response, dynamicFields) => {
         const town = response.results[0].address_components[1].short_name;
-        const stateCode = response.results[0].address_components[3].short_name
+        const stateCode = response
+            .results[0]
+            .address_components
+            .find(obj => obj.types && obj.types.includes("administrative_area_level_1"))
+            .short_name;
 
         dynamicFields.forEach(item => {
             item.textContent = `${town}, ${stateCode}`;

@@ -8,13 +8,14 @@
     .step-1 {
         gap: 15;
         justify-content: unset;
+        flex-grow: unset;
         
         .disclaimer {
             display: none;
         }
 
         &__form {
-            gap: 15px;
+            gap: unset;
 
             h2 {
                 margin-top: 20px;

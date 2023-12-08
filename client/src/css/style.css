@@ -43,7 +43,6 @@
   height: 5%;
 }
 .form__header__logo {
-  height: 27px;
   width: 200px;
   overflow: hidden;
   display: flex;
@@ -51,6 +50,7 @@
 }
 .form__header__logo img {
   width: 100%;
+  padding-top: 4px;
 }
 .form__header__phone {
   color: #DC3545;
@@ -627,19 +627,20 @@
   .form .companies {
     width: 100%;
     margin-bottom: 15px;
-    margin-top: 60px;
+    margin-top: 25px;
   }
 }
 @media only screen and (max-width: 991.98px) {
   .step-1 {
     gap: 15;
     justify-content: unset;
+    flex-grow: unset;
   }
   .step-1 .disclaimer {
     display: none;
   }
   .step-1__form {
-    gap: 15px;
+    gap: unset;
   }
   .step-1__form h2 {
     margin-top: 20px;
@@ -682,7 +683,7 @@
   .step-2__form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: unset;
   }
   .step-2__form h3 {
     margin-top: none;
@@ -708,7 +709,7 @@
   .step-4__form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: unset;
   }
   .step-4__form h3 {
     margin-top: none;

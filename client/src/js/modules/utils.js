@@ -35,3 +35,29 @@ function setValidationIcon(inputId, isOkay) {
     validationIcon.src = iconPath;
     validationIcon.alt = iconAlt;
 }
+
+function setCountry(isUSZipCode, isCAPostalCode, zipCode, inputId) {
+    if (isUSZipCode) {
+        updateCountry('USA', inputId)
+    } else if (isCAPostalCode) {
+        updateCountry('CA', inputId)
+    } else {
+        return 'Unknown';
+    }
+}
+
+function validateFieldsOnChangingStep(filedsToValidate) {
+    for (const { name, errorSpan, errorMessage } of filedsToValidate) {
+        if (!formData[name]) {
+            errorSpan.textContent = errorMessage;
+            if (name !== 'propertyType') {
+                setValidationIcon(name, false)
+            }
+        } else {
+            errorSpan.textContent = "";
+            if (name !== 'propertyType') {
+                setValidationIcon(name, true)
+            }
+        }
+    }
+}

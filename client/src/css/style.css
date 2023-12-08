@@ -21,7 +21,7 @@
 }
 
 .form {
-  min-height: 600px;
+  min-height: 700px;
   height: auto;
   top: 50%;
   transform: translateY(-50%);
@@ -99,6 +99,7 @@
   font-weight: 500;
   margin: 0;
   margin-top: 14px;
+  margin-bottom: 15px;
 }
 .step-1__form h2::after {
   content: "";
@@ -198,6 +199,7 @@
 }
 .step-2__form .info__container {
   margin-top: 20px;
+  margin-bottom: 15px;
 }
 .step-2__form .info__container .info {
   display: flex;
@@ -372,6 +374,7 @@
 }
 .step-3__form .info__container {
   margin-top: 20px;
+  margin-bottom: 15px;
 }
 .step-3__form .info__container .info {
   display: flex;
@@ -414,6 +417,7 @@
 }
 .step-4__form .info__container {
   margin-top: 20px;
+  margin-bottom: 15px;
 }
 .step-4__form .info__container .info {
   display: flex;
@@ -781,8 +785,6 @@ h3 {
   opacity: 0.5;
   color: #263238;
   margin: 0;
-  margin-bottom: 10px;
-  margin-top: 10px;
 }
 
 .wrapper {
@@ -796,13 +798,15 @@ h3 {
 
 .input-wrapper {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 .input-wrapper .input-icon {
   width: 30px;
   height: 30px;
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 55%;
   right: 10px;
   display: flex;
   justify-content: center;
@@ -873,6 +877,7 @@ h3 {
   color: #DC3545;
   font-weight: 500;
   font-size: 15px;
+  height: 20px;
 }
 
 .iti--allow-dropdown {

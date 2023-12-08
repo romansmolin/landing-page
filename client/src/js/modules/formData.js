@@ -29,3 +29,7 @@ function updateEmail(inputId, email) {
 function updatePhone(inputId, phone) {
     formData[inputId] = phone;
 }
+
+function updateCountry(country, type) {
+    formData[`${type}Country`] = country;
+}

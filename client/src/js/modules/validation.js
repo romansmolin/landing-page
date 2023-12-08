@@ -41,6 +41,7 @@ function checkIfValid(condition, input, inputValue, errorSpan, errorMessage, upd
         input.classList.add("wrong")
         updateFunction(input.id, "");
         setValidationIcon(input.id, false)
+
     } else {
         input.classList.remove("wrong")
         errorSpan.textContent = "";
@@ -50,12 +51,12 @@ function checkIfValid(condition, input, inputValue, errorSpan, errorMessage, upd
 
     if (!inputValue) {
         errorSpan.textContent = "";
+        input.classList.remove("wrong");
     }
 }
 
 function validateZipCode(input, errorId, updateFunction) {
-    const errorMessage = "Please enter a valid 5-digit US or CA zip code";
-    const minLength = 5;
+    const errorMessage = "Please enter a valid US or CA zip code";
 
     const zipCode = input.value;
     const errorSpan = document.getElementById(errorId);
@@ -66,7 +67,9 @@ function validateZipCode(input, errorId, updateFunction) {
     const isUSZipCode = usZipCodePattern.test(zipCode);
     const isCAPostalCode = caPostalCodePattern.test(zipCode);
 
-    const condition = !(isUSZipCode || isCAPostalCode)
+    const condition = !(isUSZipCode || isCAPostalCode);
+
+    setCountry(isUSZipCode, isCAPostalCode, zipCode, input.id);
     checkIfValid(condition, input, input.value, errorSpan, errorMessage, updateFunction);
 
 }
@@ -96,19 +99,35 @@ function validatePhone(errorId, updateFunction) {
 
     const condition = !isValid;
 
-    clearTimeout(timeoutId);
-
     checkIfValid(condition, inputField, phoneNumber, errorSpan, errorMessage, updateFunction)
 }
 
 async function validateFirstStep() {
-
+    const errors = [];
     const movingToDynamicFields = document.querySelectorAll('.dzip-field')
     const movingFromDynamicFields = document.querySelectorAll('.ozip-field')
 
+    const filedsToValidate = [
+        {
+            name: 'propertyType',
+            errorSpan: document.getElementById('property-error'),
+            errorMessage: 'You Need To Choose One Option.'
+        },
+        {
+            name: 'ozip',
+            errorSpan: document.getElementById('ozip-error'),
+            errorMessage: 'Please enter Moving From Zip Code.'
+        },
+        {
+            name: 'dzip',
+            errorSpan: document.getElementById('dzip-error'),
+            errorMessage: 'Please enter Moving To Zip Code.'
+        },
+    ]
+
     const updateDynamicFields = (response, dynamicFields) => {
-        const town = response[0].address.county;
-        const stateCode = response[0].address.state_code.toUpperCase();
+        const town = response.results[0].address_components[1].short_name;
+        const stateCode = response.results[0].address_components[3].short_name
 
         dynamicFields.forEach(item => {
             item.textContent = `${town}, ${stateCode}`;
@@ -116,48 +135,41 @@ async function validateFirstStep() {
     }
 
     if (!formData.dzip || !formData.ozip || !formData.propertyType) {
-        const filedsToValidate = [
-            {
-                name: 'propertyType',
-                errorSpan: document.getElementById('property-error'),
-                errorMessage: 'You Need To Choose One Option.'
-            },
-            {
-                name: 'ozip',
-                errorSpan: document.getElementById('ozip-error'),
-                errorMessage: 'Please enter Moving From Zip Code.'
-            },
-            {
-                name: 'dzip',
-                errorSpan: document.getElementById('dzip-error'),
-                errorMessage: 'Please enter Moving To Zip Code.'
-            },
-        ]
-
-        for (const { name, errorSpan, errorMessage } of filedsToValidate) {
-            if (!formData[name]) {
-                errorSpan.textContent = errorMessage;
-                if (name !== 'propertyType') {
-                    setValidationIcon(name, false)
-                }
-            } else {
-                errorSpan.textContent = "";
-                if (name !== 'propertyType') {
-                    setValidationIcon(name, true)
-                }
-            }
-        }
+        validateFieldsOnChangingStep(filedsToValidate)
     } else {
+        const dzipApiCall = formData.dzipCountry === "CA" ? formData.dzip.replace(' ', '%20') : formData.dzip;
+        const ozipApiCall = formData.ozipCountry === "CA" ? formData.ozip.replace(' ', '%20') : formData.ozip;
 
-        getCityAndState(formData.dzip)
-            .then(response => updateDynamicFields(response, movingToDynamicFields))
-            .catch(error => console.error("Error:", error));
+        try {
+            const [dzipResponse, ozipResponse] = await Promise.all([
+                getCityAndState(dzipApiCall),
+                getCityAndState(ozipApiCall)
+            ]);
 
-        getCityAndState(formData.ozip)
-            .then(response => updateDynamicFields(response, movingFromDynamicFields))
-            .catch(error => console.error("Error:", error));
+            if (dzipResponse.status === "ZERO_RESULTS") {
+                filedsToValidate[2].errorSpan.textContent = 'Please enter existing zip code for Moving To';
+                errors.push('Moving To Error')
+                setValidationIcon('dzip', false)
+            } else {
+                updateDynamicFields(dzipResponse, movingToDynamicFields);
+            }
 
-        navigateStep(2, 1)
+            if (ozipResponse.status === "ZERO_RESULTS") {
+                filedsToValidate[1].errorSpan.textContent = 'Please enter existing zip code for Moving From';
+                errors.push('Moving From Error')
+                setValidationIcon('ozip', false)
+            } else {
+                updateDynamicFields(ozipResponse, movingFromDynamicFields);
+            }
+
+            if (errors.length > 0) {
+                return
+            }
+
+            navigateStep(2, 1);
+        } catch (error) {
+            console.error("Error:", error);
+        }
     }
 }
 

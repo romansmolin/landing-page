@@ -46,10 +46,10 @@ async function confirmOTP(phoneNumber, otp) {
 }
 
 async function getCityAndState(zipCode) {
-    const apiKey = 'pk.2fb60327e6f2ca10803e8b132537649e'
+    const apiKey = 'AIzaSyALi6BN0vdvo28FYyrPUt_k0v656lHdT6E'
     const options = { method: 'GET', headers: { accept: 'application/json' } };
 
-    return fetch(`https://us1.locationiq.com/v1/search/postalcode?postalcode=${zipCode}&countrycodes=us%2Cca&format=json&addressdetails=1&statecode=1&key=${apiKey}`, options)
+    return fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${zipCode}&key=${apiKey}`, options)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);

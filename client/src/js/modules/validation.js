@@ -147,7 +147,7 @@ async function validateFirstStep() {
             ]);
 
             if (dzipResponse.status === "ZERO_RESULTS") {
-                filedsToValidate[2].errorSpan.textContent = 'Please enter existing zip code for Moving To';
+                filedsToValidate[2].errorSpan.textContent = 'Please enter existing zip code';
                 errors.push('Moving To Error')
                 setValidationIcon('dzip', false)
             } else {
@@ -155,7 +155,7 @@ async function validateFirstStep() {
             }
 
             if (ozipResponse.status === "ZERO_RESULTS") {
-                filedsToValidate[1].errorSpan.textContent = 'Please enter existing zip code for Moving From';
+                filedsToValidate[1].errorSpan.textContent = 'Please enter existing zip code';
                 errors.push('Moving From Error')
                 setValidationIcon('ozip', false)
             } else {

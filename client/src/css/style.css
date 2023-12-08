@@ -789,7 +789,7 @@ h3 {
 }
 
 .wrapper {
-  max-width: 1800px;
+  max-width: 1500px;
   width: 90%;
   position: relative;
   margin: 0 auto;
@@ -826,6 +826,7 @@ h3 {
   transition: background-color 0.3s;
   width: 100%;
   position: relative;
+  margin-top: 15px;
 }
 .submit img {
   position: absolute;

@@ -16,7 +16,6 @@
     font-family: $main-font;
 }
 
-
 body {
     display: flex;
     flex-direction: column;
@@ -24,7 +23,6 @@ body {
     margin: 0;
     min-height: 100vh;
 }
-
 
 a {
     text-decoration: none;
@@ -37,14 +35,10 @@ h3 {
     opacity: $text-opacity;
     color: $text-color;
     margin: 0;
-    // margin-bottom: 15px;
-    // margin-top: 15px;
-    // line-height: 50px;
 }
 
-
 .wrapper {
-    max-width: 1800px;
+    max-width: 1500px;
     width: 90%;
     position: relative;
     margin: 0 auto;
@@ -82,6 +76,7 @@ h3 {
     transition: background-color 0.3s;
     width: 100%;
     position: relative;
+    margin-top: 15px;
     
     img {
         position: absolute;

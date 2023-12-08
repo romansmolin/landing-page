@@ -69,8 +69,10 @@ function validateZipCode(input, errorId, updateFunction) {
 
     const condition = !(isUSZipCode || isCAPostalCode);
 
-    setCountry(isUSZipCode, isCAPostalCode, zipCode, input.id);
-    checkIfValid(condition, input, input.value, errorSpan, errorMessage, updateFunction);
+    if (input.value) {
+        setCountry(isUSZipCode, isCAPostalCode, zipCode, input.id);
+        checkIfValid(condition, input, input.value, errorSpan, errorMessage, updateFunction);
+    }
 
 }
 
@@ -78,14 +80,18 @@ function validateFullName(input, errorId, updateFuntion) {
     const validationRegex = /^[A-Za-z\s'-]+$/;
     const errorMessage = "Please enter a valid name";
 
-    validateInput(input, errorId, updateFuntion, validationRegex, errorMessage);
+    if (input.value) {
+        validateInput(input, errorId, updateFuntion, validationRegex, errorMessage);
+    }
 }
 
 function validateEmail(input, errorId, updateFunction) {
     const validationRegex = /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
     const errorMessage = "Please enter a valid email";
 
-    validateInput(input, errorId, updateFunction, validationRegex, errorMessage);
+    if (input.value) {
+        validateInput(input, errorId, updateFunction, validationRegex, errorMessage);
+    }
 }
 
 function validatePhone(errorId, updateFunction) {
@@ -99,7 +105,9 @@ function validatePhone(errorId, updateFunction) {
 
     const condition = !isValid;
 
-    checkIfValid(condition, inputField, phoneNumber, errorSpan, errorMessage, updateFunction)
+    if (input.value) {
+        checkIfValid(condition, inputField, phoneNumber, errorSpan, errorMessage, updateFunction)
+    }
 }
 
 async function validateFirstStep() {

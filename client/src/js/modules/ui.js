@@ -47,6 +47,9 @@ function activateLoader() {
             return simulateLoading(2000);
         })
         .then(() => {
+            gtag('event', `third-step-loading-completed`, {
+                'event_label': `third-step-loading-completed`,
+            });
             navigateStep(4, 3);
         })
         .catch(error => {

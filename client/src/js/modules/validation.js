@@ -179,6 +179,9 @@ async function validateFirstStep() {
             }
 
             navigateStep(2, 1);
+            gtag('event', `first-step-completed`, {
+                'event_label': `first-step-completed`,
+            });
         } catch (error) {
             console.error("Error:", error);
         }
@@ -210,6 +213,9 @@ function validateSecondStep() {
             }
         }
     } else {
+        gtag('event', `second-step-completed`, {
+            'event_label': `second-step-completed`,
+        });
         navigateStep(3, 2)
     }
 }
@@ -250,6 +256,9 @@ function validateFourthStep() {
 
         sendVerificationCode(formData.phone)
         navigateStep(5, 4)
+        gtag('event', `fourth-step-completed`, {
+            'event_label': `fourth-step-completed`,
+        });
     }
 }
 
@@ -265,6 +274,10 @@ async function validateOtp(errorId) {
         if (isOTPValid) {
             errorSpan.textContent = "";
             navigateStep(6, 5)
+
+            gtag('event', `otp-verification`, {
+                'event_label': `otp-verification`,
+            });
         }
     } else {
         otpInputs.forEach((input) => {

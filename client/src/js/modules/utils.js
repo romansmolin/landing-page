@@ -38,7 +38,7 @@ function setValidationIcon(inputId, isOkay) {
 
 function setCountry(isUSZipCode, isCAPostalCode, zipCode, inputId) {
     if (isUSZipCode) {
-        updateCountry('USA', inputId)
+        updateCountry('US', inputId)
     } else if (isCAPostalCode) {
         updateCountry('CA', inputId)
     } else {

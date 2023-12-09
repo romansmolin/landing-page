@@ -154,8 +154,8 @@ async function validateFirstStep() {
 
         try {
             const [dzipResponse, ozipResponse] = await Promise.all([
-                getCityAndState(dzipApiCall),
-                getCityAndState(ozipApiCall)
+                getCityAndState(dzipApiCall, formData.dzipCountry),
+                getCityAndState(ozipApiCall, formData.ozipCountry)
             ]);
 
             if (dzipResponse.status === "ZERO_RESULTS") {
